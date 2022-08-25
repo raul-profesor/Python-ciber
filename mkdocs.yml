@@ -1,0 +1,54 @@
+site_name: Python para ciberseguridad
+
+theme:
+  name: material
+  palette: 
+    - media: "(prefers-color-scheme: light)"    
+    # Palette toggle for light mode
+      scheme: default
+      primary: green
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo oscuro
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo claro
+  language: es
+  features:
+    #- navigation.sections
+    - navigation.top
+    #- navigation.expand
+    - toc.integrate
+    - search.highlight
+    - content.code.annotate
+markdown_extensions:
+  - meta
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+  - footnotes
+  
+plugins: 
+  - search:
+      lang: es
+  - awesome-pages:
+      collapse_single_pages: true
+
+extra_css:
+  - stylesheets/extra.css
