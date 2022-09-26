@@ -1,11 +1,15 @@
 nav:
-    - Introducción: intro.md
-    - Variables: variables.md 
-    - Operadores: operadores.md
-    - Estructuras de control: condicionales.md
-    - Listas y tuplas: listas.md
-    - Diccionarios: diccionarios.md
-    - Funciones: funciones.md
-    - Excepciones: excepciones.md
-    - Módulos y paquetes: modulos.md
-    - Bibliografía: bibliografia.md
+    - Bienvenida a Python:
+      - Introducción: intro.md
+      - Variables: variables.md 
+      - Operadores: operadores.md
+      - Estructuras de control: condicionales.md
+      - Listas y tuplas: listas.md
+      - Diccionarios: diccionarios.md
+      - Funciones: funciones.md
+      - Excepciones: excepciones.md
+      - Iteradores avanzados: iteradores.md
+      - Módulos y paquetes: modulos.md
+      - Bibliografía: bibliografia.md
+    - Introducción a la librería requests:
+      - Introducción: requests.md
