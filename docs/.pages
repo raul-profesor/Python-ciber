@@ -12,4 +12,4 @@ nav:
       - Módulos y paquetes: modulos.md
       - Bibliografía: bibliografia.md
     - Introducción a la librería requests:
-      - Introducción: requests.md
+      - Requests: requests.md

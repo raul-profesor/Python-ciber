@@ -209,14 +209,15 @@ En el código de arriba, importamos la clase `HTTPError` para capturar y resolve
 
 La biblioteca requests no genera una excepción automáticamente una vez ocurre un error. Es por ello que necesitamos usaro el método `raise_for_status()` para identificar si un código de estado de error ha ocurrido o no. Finalmente, el manejador de excepciones bloquea la captura del error y lo imprime tal que así:
 
-```python
+```
 404 Client Error: NOT FOUND for url: http://httpbin.org/status/404
-```---
-**NOTE**
+```
 
-If you try to access the <code>http://httpbin.org/status/200</code> endpoint, the code above outputs <code>Response Code: 200</code> because the status code is not in the range of error status codes. The <code>raise_for_status()</code> method will return <code>None</code>, which won't trigger the exception handler.
-- - - -
-In addition to the exception that we just discussed, let’s see how we can resolve server timeouts. It's crucial because we need to ensure our application doesn’t hang indefinitely. In the Requests library, if a request times out, a *Timeout*  exception will occur. To specify the timeout of a request to a number of seconds, we can use the <code>timeout</code> argument:
+!!!note Nota
+    Si intentamos acceder al endpoint <code>http://httpbin.org/status/200</code>, la salida del código de arriba será <code>Response Code: 200</code> porque el código de estado no está en el rango de códigos de estado de error. El método <code>raise_for_status()</code> devolverá <code>None</code>, que no hará saltar al manejador de excepciones.
+
+Además del manejo de excepciones que acabamos de ver, veremos cómo resolver los *timeouts*. Esto es crucial porque necesitaremos asegurarnos de que nuestra aplicación no se queda esperando indefinidamente. Si una petición agota el tiempo de espera, produce una excepción del timpo *Timeout*. Para especificar qué número de segundos consideraremos como timeout, podemos usar el argumento <code>timeout</code>:
+
 ```py
 import requests
 from requests import Timeout
@@ -227,41 +228,55 @@ try:
     print('Response Code:', r.status_code)
 except Timeout as ex:
     print(ex)
+```
 
-Let’s first discuss the code. We import the Timeout class to resolve the timeout exceptions and provide a URL that refers to an endpoint with a 10-second delay to test our code. Then, we set the timeout argument to 3 seconds, which means the get request will throw an exception if the server doesn’t respond in 3 seconds. Finally, the exception handler catches the timeout error, if any, and prints out it. So running the code above outputs the following error message because the server won’t respond in the given time.
+En primer lugar importamos la clase *Timeout* para resolver la excepciones de tipo timeout y proporcionarnamos una URL que hace referencia a un endpoint con un delay de 10 segundos para probar nuestro código.
 
+Tras esto, establecemos el argumento timeout a un valor de 3 segundos, lo que provocará que si el servidor no resuelve la petición get en 3 segundos, se genere una excepción. El manejador de excepciones capturará cualquier error de timeout y lo mostrará.
+
+Así pues, el código de arriba básicamente muestra el siguiente mensaje d error porque el servidor no responderá en el tiempo indicado: 
+
+```
 HTTPConnectionPool(host='httpbin.org', port=80): Read timed out. (read timeout=3)
-```## Authentication
-The Requests library supports various web authentications, such as basic, digest, the two versions of OAuth, etc. We can use these authentication methods when we want to work with any data sources that require us to be logged in.
+```
 
-We will implement the basic authentication using HTTPBin service in the following example. The endpoint for Basic Auth is /basic-auth/{*user*}/{*password*}. For example, if you use the following endpoint . . .
+### Autenticación
 
-http://httpbin.org/basic-auth/data/quest
+La bibliotca requests soporta varios tipos de autenticación web, como la autenticación básica, digest, las dos versiones de 0Auth... Podemos usar estos métodos de autenticación cuando queramos trabajar con cualquier tipo de fuente de datos que requiera loguearnos.
 
-. . . you can authenticate using the username *'data'* and the password *'quest'* by assigning them as a tuple to the <code>auth</code> argument. Once you authenticate successfully, it responds with JSON data <code>{ "authenticated": true, "user": "data"}</code>.
+Implementaremos la autenticación básica usando `HTTPBin` con el siguiente ejemplo. El endpoint para la autenticación básica es `/basic-auth/{*user*}/{*password*}`. Por ejemplo, si quisiéramos usar el siguiente endpoint: `http://httpbin.org/basic-auth/data/quest`, podemos autenticarnos utilizando el utilizando el nombre **data** y el  password **quest** asignándolos como una tupla al argumento `auth`. 
+
+Una vez autenticados satisfactoriamente, nos responderá con los datos en formato JSON:
+
+<code>{ "authenticated": true, "user": "data"}</code>
+
+Así pues, ejecutando el siguiente código:
+
 ```py
 import requests
 r = requests.get('http://httpbin.org/basic-auth/data/quest', auth=('data', 'quest'))
 print('Response Code:', r.status_code)
 print('Response Content:\n', r.text)
+```
 
-Run the code above. It outputs as follows:
+Obtenemos la siguiente salida:
 
+```
 Response Code: 200
 Response Content:
  {
   "authenticated": true,
   "user": "data"
 }
+```
 
-If we make either the username or password incorrect, it outputs as follows:
+Si introducimos un nombre de usuario o un password incorrecto, la salida mostrará:
 
+```
 Response Code: 401
 Response Content:
+```
 
-Conclusion
-
-We learned about one of the most powerful and downloaded Python libraries. We discussed the basics of HTTP and different aspects of the Python Requests library. We also worked with GET and POST requests and learned how to resolve the exceptions of the requests. Finally, we tried to authenticate through the basic authentication method in a web service.
 
 ## Referencias 
 
