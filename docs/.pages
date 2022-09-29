@@ -11,6 +11,6 @@ nav:
       - Iteradores avanzados: iteradores.md
       - Módulos y paquetes: modulos.md
       - Bibliografía: bibliografia.md
-    - Introducción a las bibliotcas Requests y Beautiful Soup:
+    - Introducción a las bibliotecas Requests y Beautiful Soup:
       - Requests: requests.md
       - Beautiful Soup: beauty.md

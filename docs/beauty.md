@@ -88,3 +88,96 @@ HTML está formado por elementos llamados **tags o etiquetas**. El más básico 
 <html>
 </html>
 ```
+
+No hemos añadido contenido a nuestra página todavía así que este documento HTML no mostraría nada en un navegador. Podemos poner más etiquetas dentro de las etiquetas `html`:
+
+```html
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>
+```
+
+El contenido principal del sitio web lo podremos encontrar dnetro de las etiquetas `body`. La etiqueta `head` contiene información acerca dle título de la página así como otro tipo de información no útil para el web scraping.
+
+Añadamos ahora un párrafo dentro del body con su correspondiente etiqueta `p`:
+
+```html
+<html>
+<head>
+</head>
+<body>
+<p>
+Primer párrafo
+</p>
+<p>
+Segundo párrafo
+</p>
+</body>
+</html>
+```
+
+Podemos además añadir propiedades a las etiquetas HML que cambien su comportamiento. Añadamos ahora hiperenlaces con la etiqueta `a`:
+
+```html
+<html>
+<head>
+</head>
+<body>
+<p>
+Primer párrafo
+<a href="https://www.dataquest.io">Learn Data Science Online</a>
+</p>
+<p>
+Segundo párrafo
+<a href="https://www.python.org">Python</a> </p>
+</body>
+</html>
+```
+
+Que se verá así:
+
+![](img/web-simple.png)
+
+En el ejemplo anterio la etiqueta `a` indica que se trata de un link y la propiedad `href` determina a donde apunta ese link.
+
+Otras etiquetas comunes son:
+
++ div: indica una división o área de la página
++ b: texto en negrita
++ i: texto en cursiva
++ table: crea una tabla
++ form: crea un formulario
+
+[Aquí](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) podéis encontrar la lista completa de tags o etiquetas.
+
+Para acabar con el apartado dedicado a HTML, debemos hablar de las propiedades `class` y `id`. Estas propiedade especiales proporciona nombres a los elementos HTML, haciendo así más fácil interactuar con ellos a la hora de hacer scraping.
+
+Un elemento puede tener multiples clases y una clase puede ser compartida entre elementos. Cada elemento sólo puede tener un único id y un id sólo puede usarse una vez por página.  
+
+Estos `class` y `id` son opcinoales y no todos los elementos los tendrán. Sobre el ejemplo anterior:
+
+```html
+<html>
+<head>
+</head>
+<body>
+<p class="bold-paragraph">
+Primer párrafo
+<a href="https://www.dataquest.io" id="learn-link">Learn Data Science Online</a>
+</p>
+<p class="bold-paragraph extra-large">
+Segundo párrafo
+<a href="https://www.python.org" class="extra-large">Python</a>
+</p>
+</body>
+</html>
+```
+
+Estas propiedades no modifican la forma en que se ve la página en el navegador.
+
+## Parseando páginas con BeatifulSoup
+
+El parsing no es más que un análisis sintáctico, [como podéis leer aquí](https://es.wikipedia.org/wiki/Analizador_sint%C3%A1ctico)
