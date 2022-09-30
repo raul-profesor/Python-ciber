@@ -181,3 +181,98 @@ Estas propiedades no modifican la forma en que se ve la página en el navegador.
 ## Parseando páginas con BeatifulSoup
 
 El parsing no es más que un análisis sintáctico, [como podéis leer aquí](https://es.wikipedia.org/wiki/Analizador_sint%C3%A1ctico)
+
+Supongamos que descargamos la siguiente página usando la biblioteca Requests que ya hemos visto:
+
+```python
+import requests
+page = requests.get("https://dataquestio.github.io/web-scraping-pages/simple.html")
+page
+```
+
+Podemos utilizar la biblioteca [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) para *parsear* este documento y extraer el texto de la etiqueta `p`.
+
+Lo primero que deberemos hacer, como siempre, es instalar BeautifulSoup. Podemos hacerlo en nuestro entorno virtual:
+
+O de forma general en nuestra máquina:
+
+```python
+pipenv shell
+pipenv install beautifulsoup4
+```
+Ahora, en el entorno interactivo de python, podemos proceder:
+
+![](img/bs.png)
+
+Lo que hemos hecho ha sido importar la biblioteca y crear una instancia de la clase BeautifulSoup para parsear nuestro documento. Tras ello, hemos mostrado por pantall el contenido de la página de una forma un poco más *bonita* utilizando el método `prettify` del objeto `BeautifulSoup`.
+
+Este último paso no es estrictamente necesario aunque a veces pueda ayudarnos para que sea más fácil entender la estructura de las etiquetas de la página y el anidado entre ellas.
+
+Con la propiedad `children` de `soup` podemos seleccionar los elementos del nivel más alto. Estos elementos se devuelven en forma de lista, por lo que necesitaremos la función `list`:
+
+```python
+list(soud.children)
+```
+
+El resultado del comando de arriba nos indicará que hay dos etiquetas de nivel superior, la etiqueta inicial `<!DOCTYPE html>` y la etiqueta `<html>`. Además aparece un carácter de nueva línea `\n` en la lista también. 
+
+Para saber qué tipo de dato es cada elemento, podemos iterar sobre la lista:
+
+```python
+[type(item) for item in list(soup.children)]
+```
+
+Veremos de esta forma que que los elementos de la lista son objetos de BeautifulSoup:
+
++ El primero es un objeto `Doctype`, que contiene información sobre el tipo de documento
+
++ El segundo es del tipo `NavegableString`, que indica que se ha encontrado texto el documento HTML.
+
++ El elemento final es un `Tag`, que contiene otros tags anidados.
+
+El tipo de objeto más importante y con el que lidiaremos más a menudo es el objeto `Tag`.
+
+El objeto Tag nos permite navegar a través de un documento HTML y extraer otros tags o textos. 
+
+[Aquí una lista](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#kinds-of-objects) con los tipos de objetos de BeatifulSoup.
+
+
+Podemos seleccionar ahora el tag html y sus hijos seleccionando el tercer elemnto de la lista:
+
+```python
+html = list(soup.children)[2]
+```
+
+Cada elemento devuelto por la porpiedad `children` es también un objeto BeautifulSoup, así que podremos seguir invocando el método `children` sobre `html`
+
+```python
+list(html.children)
+```
+
+Y podremos seguir iterando sobre los tags anidados hasta aislar el tag `p` que es el que nos interesa
+
+```python
+body = list(html.children)[3]
+
+list(body.children)
+
+p = list(body.children)[1]
+```
+_
+Y una vez aislado, usamos el método `get_text` para extraer todo el texto que deseamos:
+
+```python
+p.get_text()
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
