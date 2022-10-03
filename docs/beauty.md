@@ -265,14 +265,114 @@ Y una vez aislado, usamos el método `get_text` para extraer todo el texto que d
 p.get_text()
 ```
 
+### Encontrar todas las instancias de una etiqueta o tag a la vez
+
+El proceso que hemos seguido arriba es útil pero tedioso y poco eficiente. Es por ello, que si quisiéramos extraer todas las instancias de un tag dentro de una página, podemos utilizar el método `find_all`:
+
+```python
+soup = BeautifulSoup(page.content, 'html.parser')
+soup.find_all('p')
+```
+
+Este método devuelve una lista, así que tendremos que iterar sobre ella o usar índices para extraer el texto:
+
+```python
+soup.find_all('p')[0].get_text()
+```
+
+Para encontrar la primera instancia que aparece en la página de un determinado tag, usaremos el método `find`, que devuelve un único objeto BeautifulSoup:
+
+```python
+soup.find('p')
+```
+
+### Buscando etiquetas usando "class" y "id"
+
+Estos dos elementos, introducidos con anteriorirdad, se usan en CSS para determinar a qué elementos HTML se están aplicando ciertos estiles. Pero cuando estamos haciendo *scraping* también podemos usarlos para escpeificar los elementos que queremos *scrapear*.
+
+Para ilustrar esta sección, vamos a trabajar con la siguiente página:
+
+```html
+<html>
+    <head>
+        <title>A simple example page</title>
+    </head>
+    <body>
+        <div>
+            <p class="inner-text first-item" id="first">
+                First paragraph.
+            </p>
+            <p class="inner-text">
+                Second paragraph.
+            </p>
+        </div>
+            <p class="outer-text first-item" id="second">
+                <b>
+                First outer paragraph.
+                </b>
+            </p>
+            <p class="outer-text">
+                <b>
+                Second outer paragraph.
+                </b>
+            </p>
+    </body>
+</html>
+```
+
+Que podemos encontrar [aquí](https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html).
+
+Seguimos el mismo modus operandi, descargamos la página y creamos un objeto BeautifulSoup:
+
+```python
+page = requests.get("https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html")
+soup = BeautifulSoup(page.content, 'html.parser')
+soup
+```
+
+Ahora, para encontrar todos los elementos con el tag `p` con un *class* igual a `outer-text`:
+
+```python
+soup.find_all('p', class_='outer-text')sssssssssssssssssssss
+```
+
+O simplemente cualquier tag con ese *class*:
+
+```python
+soup.find_all(class_="outer-text")
+```
+
+O buscar también por *id*:
+
+```python
+soup.find_all(id="first")
+```
+
+
+
+
+
+
+
 ```python
 
 ```
 
-```python
 
-```
 
 ```python
 
 ```
+
+
+
+```python
+
+```
+
+
+
+```python
+
+```
+
