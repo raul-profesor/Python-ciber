@@ -82,9 +82,17 @@ browser.get_current_page().find_all('legend')
 ```
 ### Formularios
 
-También podemos encontrar los formularios y hacer peticiones POST con el siguietne comando:
+También podemos encontrar los formularios y hacer peticiones POST con el siguiente comando:
 
 ```python
 browser.select_form('form[action="/post"]')
 browser.get_current_form().print_summary()
 ```
+
++ Con `select_form()` utilizamos un selector CSS, seleccionamos el tag HTML **form** que tiene al atributo `action` y cuyo valor es `/post`. 
++ `print_summary` nos mostrará todos los campos disponibles del formulario
+
+
+## Referencias
+
+[MechanicalSoup tutorial - First contact, step by step](https://mechanicalsoup.readthedocs.io/en/stable/tutorial.html)
