@@ -349,8 +349,98 @@ soup.find_all(id="first")
 ```
 
 
+### Usando selectores CSS
+
+También podemos buscar elementos usando los [selectores CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). Mediante estos selectores el *lenguaje* CSS permite a los desarrolladores especificar las etiquetas HTML a las que aplicar estilos. Algunos ejemplos:
+
++ `p a`: encuentra todos los tags `a` dentro de un tag `p`
++ `body p a`: encuentra todos los tags `a` dentro de un tag `p` dentro de un tag `body`
++ `html body `: encuentra todos los tags `body` dentro deun tag `html`
++ `p.outer-text `: encuentra todos los tags `p` con la class `outer-text`
++ `p#first`: encuentra todos los tags `p` con un id `first`
++ `body p.outer-text`: encuentra todos los tags `p` con la class `outer-text` dentro de un tag `body`
+
+BeautifulSoup soporta la búsqueda en una página usando selectores CSS usando el método `select`. Podemos usar estos selectores para encontrar todos los tags `p` de nuestra página que esté dentro de un `div` tal que así:
+
+```python
+soup.select("div p")
+```
+
+!!!note Nota
+    El método `select` de arriba devuelve una lista de objetos BeautifulSoup, igual que `find` y `find_all`
 
 
+## Ejemplo práctico: Scraping de datos meteorológicos
+
+Para este ejemplo se utilizará la página de información del [tiempo de San Francisco](https://forecast.weather.gov/MapClick.php?lat=37.7772&lon=-122.4168)
+
+![](img/forecast.png)
+
+Como vemos en la imagen, la página contiene información ampliada de la previsión meteorológica para la semana que viene, incluyendo cosas como la temperatura o una breve descripción de las condiciones.
+
+### Explorando la estructura de la página con las herramientas de desarrollador
+
+Para acceder a las herramientas de desarrollador de nuestro navegador podemos apretar simplemente **F12** o podemos encontrarlas en *Herramientas > Herramientas del navegador > Herramientas para desarrolladores web* (en Firefox, en otros navegadores será similar).
+
+Si os colocáis sobre la pestaña *Inspector*, se os mostrarán todas las etiquetas/tags de la página y podréis navegar por ellas:
+
+![](img/inspector.png)
+
+Si hacemos click derecho en la página, cerca de donde pone *Extended forecast* y le decimos *Inspeccinoar*, se nos abrirá el tag donde están contenidos esos elementos:
+
+![](img/inspeccionar.png)
+
+En la pestaña de *Elements* también podemos ir navegando por los distintos elementos para encontrar el que contiene todo el texto que corresponde con la información del tiempo ampliada (extended forecasts). En este caso, como véis en la imagen de arriba, se trata de un `div` con el id `seven-day-forecast`.
+
+Si trasteamos un poco en la consola, podremos explorar el diva y descubiremos que cada elemento del tiempo (Tonight, Thursday, Thursday night...) está contenido en un `div` con la class `tombstone-container`.
+
+#### ¡Empecemos con el scraping!
+
+Ya tenemos todo lo que ncesitamos para descargarnos la página y empezar a parsear como si no hubiera un mañana. Lo que haremos, será:
+
+1. Descargar la página web que contiene la previsión del tiempo
+2. Crear una clase BeautifulSoup para parsear la página
+3. Encontrar el `div` con id `seven-day-forecast` y asignarlo a la variable `seven_day`
+4. Dentro de `seven_day` deberemos encontrar cada elemento indiivdual de la previsión del tiempo
+5. Extraer e imprimir el primero de estos elementos
+
+Esto, traducido a código Python, sería:
+
+```python
+pagina = requests.get("https://forecast.weather.gov/MapClick.php?lat=37.7772&lon=-122.4168")
+soup = BeautifulSoup(pagina.content, 'html.parser')
+seven_day = soup.find(id="seven-day-forecast")
+elementos_clima = seven_day.find_all(class_="tombstone-container")
+tonight = elementos_clima[0]
+print(tonight.prettify())
+```
+##### Extraer información concreta de la página
+
+Vemos que dentro del elemento `tonight` está toda la información que deseamos. Hay cuatro piezas de información que podemos extraer:
+
++ El nombre del elemento, en este caso `Tonight`
++ La descripción de las condiciones, almacenadas en la propiedad `title` de `img`
++ Una breve descripción de las condiciones, en este caso `Mostly Clear`
++ La mínima de temperatura, en este caso 58ºF
+
+Para extraer pues la información más relevante, siguiendo con el ejemplo anterior, podemos hacer:
+
+```python
+periodo = tonight.find(class_="period-name").get_text()
+desc_corta = tonight.find(class_="short-desc").get_text()
+temp = tonight.find(class_="temp").get_text()
+print(periodo)
+print(desc_corta)
+print(temp)
+```
+Ahora, podemos extraer el atributo `title` de la etiqueta `img`. Para hacer esto, trataremos al objeto BeautifulSoup como un diccinoario y le pasaremos el atributo que queremos como una clave:
+
+```python
+img = tonight.find("img")
+desc = img['title']
+print(desc)
+```
+##### Extraer toda la información de la página
 
 
 
@@ -358,21 +448,58 @@ soup.find_all(id="first")
 
 ```
 
+```python
 
+```
 
 ```python
 
 ```
 
+```python
 
+```
 
 ```python
 
 ```
 
+```python
 
+```
 
 ```python
 
 ```
 
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+## Referencias
+
+[Web Scraping with Python Using Beautiful Soup](https://www.dataquest.io/blog/web-scraping-python-using-beautiful-soup/)
