@@ -1,0 +1,1051 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Estructuras de control - Python para ciberseguridad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#estructuras-de-control" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Python para ciberseguridad" class="md-header__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python para ciberseguridad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Estructuras de control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python para ciberseguridad" class="md-nav__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python para ciberseguridad
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Bienvenida a Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bienvenida a Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bienvenida a Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operadores/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Estructuras de control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Estructuras de control
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#condicionales" class="md-nav__link">
+    Condicionales
+  </a>
+  
+    <nav class="md-nav" aria-label="Condicionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencia-if-else" class="md-nav__link">
+    Sentencia IF - ELSE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles" class="md-nav__link">
+    Bucles
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentencia-while" class="md-nav__link">
+    Sentencia WHILE
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentencia WHILE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bucle-while-con-else" class="md-nav__link">
+    Bucle WHILE con ELSE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucle-for-con-else" class="md-nav__link">
+    Bucle FOR con ELSE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-funcion-range" class="md-nav__link">
+    La función range()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#captura-de-excepciones-usando-try-y-except" class="md-nav__link">
+    Captura de excepciones usando try y except
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-time" class="md-nav__link">
+    Coding time!
+  </a>
+  
+    <nav class="md-nav" aria-label="Coding time!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    Ejercicio 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    Ejercicio 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    Ejercicio 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    Ejercicio 4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5" class="md-nav__link">
+    Ejercicio 5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    Ejercicio 6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-7" class="md-nav__link">
+    Ejercicio 7
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listas/" class="md-nav__link">
+        Listas y tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diccionarios/" class="md-nav__link">
+        Diccionarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excepciones/" class="md-nav__link">
+        Excepciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteradores/" class="md-nav__link">
+        Iteradores avanzados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modulos/" class="md-nav__link">
+        Módulos y paquetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografía
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introducción a las bibliotecas Requests y Beautiful Soup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introducción a las bibliotecas Requests y Beautiful Soup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introducción a las bibliotecas Requests y Beautiful Soup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beauty/" class="md-nav__link">
+        BeautifulSoup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mechanical/" class="md-nav__link">
+        MechanicalSoup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="estructuras-de-control">Estructuras de control</h1>
+<h2 id="condicionales">Condicionales</h2>
+<p>Las estructuras de control se utilizan para <strong>ejecutar bloques de código en función de condiciones</strong>.</p>
+<h3 id="sentencia-if-else">Sentencia IF - ELSE</h3>
+<p>Se evalúa la condición especificada en la sentencia <code>if</code> y en caso de cumplirse se ejecutará el bloque de código indentado (tabulado). En caso de que el resultado de la condición sea <code>False</code>, el bloque especificado no se ejecutará:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Se ejecutará cuando la condición sea True</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es mayor que uno&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Las condiciones pueden tener mayor complejidad:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">16</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">altura</span> <span class="o">=</span> <span class="mi">175</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">if</span> <span class="p">(</span><span class="n">edad</span> <span class="o">&gt;</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">altura</span> <span class="o">&gt;</span> <span class="mi">160</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Puede montarse en la montaña rusa&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Mediante la palabra reservada <code>else</code> es posible especificar un bloque de código que se ejecute en caso de que la condición no se cumpla:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>     <span class="c1"># Se ejecutará cuando la condición sea True</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es mayor que diez&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="c1"># Se ejecutará cuando la condición sera False</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es menor o igual que diez&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>También podemos comprobar más condiciones mediante la expresión <code>elif</code>. En este caso, se seguirán comprobando todas las condiciones <code>elif</code> hasta que una de ellas se cumpla. En caso contrario, se ejecutará el bloque de código dentro de <code>else</code> (si lo hubiera).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es menor que 3&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="k">elif</span> <span class="n">numero</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número está entre el 3 y el 5&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es mayor o igual a 6&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Tal y como muestra el siguiente código de ejemplo, Python no tiene limitaciones para anidar distintos bloques de <code>IF</code>s.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">if</span> <span class="n">numero</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="k">if</span> <span class="n">numero</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El valor es 0&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es un número positivo&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es un número negativo&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="bucles">Bucles</h2>
+<p>Los bucles permiten ejecutar un bloque de código tantas veces como queramos. </p>
+<h3 id="sentencia-while">Sentencia WHILE</h3>
+<p>La sentencia <code>while</code> permite ejecutar un bloque de código mientras la expresión que definamos se cumpla (es decir, devuelva <code>True</code>). Python interpretará como <code>True</code> cualquier valor distinto a <code>0</code> o <code>None</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">while</span><span class="p">(</span><span class="n">contador</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="c1"># Se ejecutará mientras la variable contador sea menor a 5.</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">contador</span> <span class="o">=</span> <span class="n">contador</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteración número&quot;</span><span class="p">,</span><span class="n">contador</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Fin!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Para detener una ejecución de forma voluntaria se utiliza la sentencia <code>break</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">while</span><span class="p">(</span><span class="n">contador</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="n">contador</span> <span class="o">=</span> <span class="n">contador</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteración número&quot;</span><span class="p">,</span><span class="n">contador</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="k">if</span> <span class="n">contador</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>        <span class="k">break</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Fin!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>También es posible saltar únicamente la iteración actual mediante la sentencia <code>continue</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">while</span><span class="p">(</span><span class="n">contador</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">contador</span> <span class="o">=</span> <span class="n">contador</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="k">if</span> <span class="n">contador</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="k">continue</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteración número </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">contador</span><span class="p">))</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;¡Fin!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>La salida del programa anterior será la siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    Iteración número 1
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    Iteración número 2
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    Iteración número 4
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    Iteración número 5
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    Bucle while finalizado
+</code></pre></div></p>
+<p>Otros lenguajes de programación ofrecen otra estructura similar conocida como <code>DO - WHILE</code>. No es el caso de Python, por lo que habría que emular dicho comportamiento mediante nuestro código.</p>
+<h4 id="bucle-while-con-else">Bucle WHILE con ELSE</h4>
+<p>La expresión <code>else</code> puede utilizarse también tras un bloque <code>while</code>. De este forma podemos definir un bloque de código que se ejecutará una vez finalizado el bloque <code>while</code> (es decir, cuando la condición se evalúe <code>False</code> y no se haya finalizado mediante un <code>break</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">while</span><span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteración número </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bucle while finalizado&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a> <span class="err">```</span>   
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1">### Sentencia FOR</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">A</span> <span class="n">diferencia</span> <span class="n">de</span> <span class="n">otros</span> <span class="n">lenguajes</span> <span class="n">de</span> <span class="n">programación</span><span class="p">,</span> <span class="n">en</span> <span class="n">Python</span> <span class="n">la</span> <span class="n">sentencia</span> <span class="n">FOR</span> <span class="n">itera</span> <span class="n">únicamente</span> <span class="n">por</span> <span class="n">secuencias</span> <span class="p">(</span><span class="n">listas</span><span class="p">,</span> <span class="n">tuplas</span><span class="p">,</span> <span class="n">cadenas</span> <span class="n">de</span> <span class="n">caracteres</span><span class="p">,</span><span class="o">...</span><span class="p">)</span><span class="o">.</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="err">```</span><span class="n">python</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="n">alumnos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ane&quot;</span><span class="p">,</span> <span class="s2">&quot;Mikel&quot;</span><span class="p">,</span> <span class="s2">&quot;Unai&quot;</span><span class="p">,</span> <span class="s2">&quot;Lorea&quot;</span><span class="p">]</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="k">for</span> <span class="n">alumno</span> <span class="ow">in</span> <span class="n">alumnos</span><span class="p">:</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">alumno</span><span class="p">)</span>
+</code></pre></div>
+<p>También es posible utilizarlo para recorrer un string:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Aprendiendo Python&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">frase</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<p>Para detener una ejecución se utiliza la sentencia <code>break</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numeros</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="n">total</span> <span class="o">+=</span> <span class="n">n</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>        <span class="k">break</span>
+</code></pre></div>
+<p>Al igual que en otras estructuras de repetición, también es posible saltar únicamente la iteración actual mediante la sentencia <code>continue</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># solo sumar los números impares</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numeros</span><span class="p">:</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numero par, no lo sumamos&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>        <span class="k">continue</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="n">total</span> <span class="o">+=</span> <span class="n">n</span>
+</code></pre></div>
+<h4 id="bucle-for-con-else">Bucle FOR con ELSE</h4>
+<p>Python permite definir un bloque de código que se ejecutará una vez finalice la iteración por todos los elementos de una lista. Es importante mencionar que no se ejecutará si se ha finalizado mediante <code>break</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">alumnos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ane&quot;</span><span class="p">,</span> <span class="s2">&quot;Mikel&quot;</span><span class="p">,</span> <span class="s2">&quot;Unai&quot;</span><span class="p">,</span> <span class="s2">&quot;Lorea&quot;</span><span class="p">]</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">for</span> <span class="n">alumno</span> <span class="ow">in</span> <span class="n">alumnos</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">alumno</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No quedan más alumnos.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="la-funcion-range">La función range()</h4>
+<p>La función <code>range([start,]  stop  [,  step])</code> devuelve una secuencia de números. Es por ello que se utiliza de forma frecuente para iterar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># 0</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1"># 1</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1"># 2</span>
+</code></pre></div>
+<p>También podemos indicar el inicio, fin y step:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Números del 5 al 10&quot;</span><span class="p">)</span> 
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">10</span><span class="p">):</span> 
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span>  <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1"># 5,  6,  7,  8,  9,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Números impares del 1 al 10&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>  <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span>  <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="c1"># 1,  3,  5,  7,  9,</span>
+</code></pre></div>
+<p>Para iterar por una lista utilizando el índice, basta con combinarlo con la función <code>len()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>    <span class="n">alumnos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ane&quot;</span><span class="p">,</span> <span class="s2">&quot;Mikel&quot;</span><span class="p">,</span> <span class="s2">&quot;Unai&quot;</span><span class="p">,</span> <span class="s2">&quot;Lorea&quot;</span><span class="p">]</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alumnos</span><span class="p">)):</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">alumnos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="captura-de-excepciones-usando-try-y-except">Captura de excepciones usando try y except</h2>
+<p>Imaginemos un script donde utilicemos las funciones <code>input</code> e <code>int</code> para leer y analizar un número entero introducido por el usuario. Resulta poco seguro realizar esta acción de esta forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">velocidad</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="err">¿</span><span class="n">Cual</span><span class="o">....</span> <span class="n">es</span> <span class="n">la</span> <span class="n">velocidad</span> <span class="n">de</span> <span class="n">vuelo</span> <span class="n">de</span> <span class="n">una</span> <span class="n">golondrina</span> <span class="n">sin</span> <span class="n">carga</span><span class="err">?</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="err">¿</span><span class="n">Te</span> <span class="n">refieres</span> <span class="n">a</span> <span class="n">una</span> <span class="n">golondrina</span> <span class="n">africana</span> <span class="n">o</span> <span class="n">a</span> <span class="n">una</span> <span class="n">europea</span><span class="err">?</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">velocidad</span><span class="p">)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>Cuando estamos trabajando con el intérprete de Python, tras el error simplemente nos aparece de nuevo el prompt, así que pensamos “¡epa, me he equivocado!”, y continuamos con la siguiente sentencia.</p>
+<p>Sin embargo, si se escribe ese código en un script de Python y se produce el error, el script se detendrá inmediatamente, y mostrará un “traceback”. No ejecutará la siguiente sentencia.</p>
+<p>He aquí un programa de ejemplo para convertir una temperatura desde grados Fahrenheit a grados Celsius <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">ent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Introduzca la Temperatura Fahrenheit:&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">fahr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">cel</span> <span class="o">=</span> <span class="p">(</span><span class="n">fahr</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">cel</span><span class="p">)</span>
+</code></pre></div>
+[:1] Código: https://es.py4e.com/code3/fahren.py</p>
+<p>Si ejecutamos este código y le damos una entrada no válida, simplemente fallará con un mensaje de error bastante antipático:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">python</span> <span class="n">fahren</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">Introduzca</span> <span class="n">la</span> <span class="n">Temperatura</span> <span class="n">Fahrenheit</span><span class="p">:</span><span class="mi">72</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="mf">22.2222222222</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">python</span> <span class="n">fahren</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">Introduzca</span> <span class="n">la</span> <span class="n">Temperatura</span> <span class="n">Fahrenheit</span><span class="p">:</span><span class="n">fred</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>  <span class="n">File</span> <span class="s2">&quot;fahren.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>    <span class="n">fahr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">float</span><span class="p">():</span> <span class="n">fred</span>
+</code></pre></div>
+<p>Existen estructuras de ejecución condicional dentro de Python para manejar este tipo de errores esperados e inesperados, llamadas <code>try/except</code>.</p>
+<p>La idea de try y except es que si se sabe que cierta secuencia de instrucciones puede generar un problema, sea posible añadir ciertas sentencias para que sean ejecutadas en caso de error. Estas sentencias extras (el bloque except) serán ignoradas si no se produce ningún error.</p>
+<p>Podéis pensar en la característica try y except de Python como una “póliza de seguros” en una secuencia de sentencias.</p>
+<p>Se puede reescribir nuestro conversor de temperaturas de esta forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">ent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Introduzca la Temperatura Fahrenheit:&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>    <span class="n">fahr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>    <span class="n">cel</span> <span class="o">=</span> <span class="p">(</span><span class="n">fahr</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">cel</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Por favor, introduzca un número&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Python comienza ejecutando la secuencia de sentencias del bloque try. Si todo va bien, se saltará todo el bloque except y terminará. Si ocurre una excepción dentro del bloque try, Python saltará fuera de ese bloque y ejecutará la secuencia de sentencias del bloque except.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">python</span> <span class="n">fahren2</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">Introduzca</span> <span class="n">la</span> <span class="n">Temperatura</span> <span class="n">Fahrenheit</span><span class="p">:</span><span class="mi">72</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="mf">22.2222222222</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">python</span> <span class="n">fahren2</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">Introduzca</span> <span class="n">la</span> <span class="n">Temperatura</span> <span class="n">Fahrenheit</span><span class="p">:</span><span class="n">fred</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="n">Por</span> <span class="n">favor</span><span class="p">,</span> <span class="n">introduzca</span> <span class="n">un</span> <span class="n">número</span>
+</code></pre></div>
+<p>Gestionar una excepción con una sentencia try recibe el nombre de capturar una excepción. En este ejemplo, la clausula except muestra un mensaje de error. En general, capturar una excepción te da la oportunidad de corregir el problema, volverlo a intentar o, al menos, terminar el programa con elegancia.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Un buen recurso para completar el conocimiento sobre las estructuras de control es <a href="https://bedford-computing.co.uk/learning/wp-content/uploads/2015/10/No.Starch.Python.Oct_.2015.ISBN_.1593276036.pdf#page=108">este</a></p>
+<p>Es especialmente interesante cuando explica los bucles y condicionales aplicados a listas, que veremos en el próximo capítulo.</p>
+</div>
+<h2 id="coding-time">Coding time!</h2>
+<h3 id="ejercicio-1">Ejercicio 1</h3>
+<p>Crea un programa que solicite un número al usuario y devuelva el siguiente mensaje:</p>
+<ul>
+<li>Si es mayor que 0: "Es un número positivo."</li>
+<li>Si es igual a 0: "Es igual a cero.</li>
+<li>Si es menor que 0: "Es un número negativo."</li>
+</ul>
+<p>Ejemplo 1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>Introduce un número: 5
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>Es un número positivo
+</code></pre></div>
+<p>Ejemplo 2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>Introduce un número: -3
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>Es un número negativo
+</code></pre></div>
+<h3 id="ejercicio-2">Ejercicio 2</h3>
+<p>Escribe un programa que solicite dos números enteros al usuario y muestre por pantalla la suma de todos los números enteros que hay entre los dos números (ambos números incluidos).</p>
+<p>Ejemplo 1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>Introduce el número de inicio: 4
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>Introduce el número de fin: 8
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>El resultado es:  30
+</code></pre></div>
+<p>Ejemplo 2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>Introduce el número de inicio: 10
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>Introduce el número de fin: 15
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>El resultado es:  75
+</code></pre></div>
+<h3 id="ejercicio-3">Ejercicio 3</h3>
+<p>Mejora el programa anterior para que muestre por separado la suma de los números pares y los impares.</p>
+<p>Ejemplo 1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>Introduce el número de inicio: 4
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>Introduce el número de fin: 8
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>Los pares suman 18 y los impares 12
+</code></pre></div>
+<p>Ejemplo 2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>Introduce el número de inicio: 10
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>Introduce el número de fin: 15
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>Los pares suman 36 y los impares 39
+</code></pre></div>
+<h3 id="ejercicio-4">Ejercicio 4</h3>
+<p>Escribe un programa que solicite al usuario un nombre de usuario y contraseña. El programa mostrará el mensaje "¡Bienvenido!" si el usuario introduce los siguientes datos:</p>
+<ul>
+<li>Nombre de usuario: root</li>
+<li>Contraseña: toor</li>
+</ul>
+<p>Si los datos de acceso son incorrectos mostrará el mensaje "Acceso fallido" y el programa finalizará.</p>
+<p>Ejemplo 1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>Introduce el nombre de usuario: root
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>Introduce la contraseña: toor
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>¡Bienvenido!
+</code></pre></div>
+<p>Ejemplo 2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>Introduce el nombre de usuario: root
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>Introduce la contraseña: 123456
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>Acceso fallido
+</code></pre></div>
+<h3 id="ejercicio-5">Ejercicio 5</h3>
+<p>Mejora el programa anterior para que solo permita 3 intentos. Cada vez vez que el usuario introduzca datos de acceso incorrectos el programa mostrará el mensaje: "Datos incorrectos. Le quedan X intentos.", siendo X el número de intentos restantes. Tras el tercer fallo el programa mostrará el mensaje "Has agotado todos tus intentos." y finalizará.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>Introduce el nombre de usuario: root
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>Introduce la contraseña: 123456
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>Datos incorrectos. Le quedan 2 intentos.
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>Introduce el nombre de usuario: root
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>Introduce la contraseña: abcd
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>Datos incorrectos. Le quedan 1 intentos.
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a>Introduce el nombre de usuario: root
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a>Introduce la contraseña: 123abc
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a>Datos incorrectos. Le quedan 0 intentos.
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a>
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a>Has agotado todos tus intentos.
+</code></pre></div>
+<h3 id="ejercicio-6">Ejercicio 6</h3>
+<p>Crea un programa que reciba 5 números del usuario y muestre el mayor de todos por pantalla.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>Introduce un número: 5
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>Introduce un número: -10
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>Introduce un número: 2
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>Introduce un número: 14
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>Introduce un número: 7
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>El número más alto es:  14
+</code></pre></div>
+<h3 id="ejercicio-7">Ejercicio 7</h3>
+<p>Mejora el programa anterior, de forma que el usuario pueda introducir tantos números como quiera. El programa solicitará números al usuario hasta que introduzca la palabra "fin". Entonces mostrará el mayor de todos por pantalla.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>Introduce un número: 6
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>Introduce un número: 9
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>Introduce un número: 11
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>Introduce un número: 3
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>Introduce un número: 5
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>Introduce un número: fin
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a>El número más alto es:  11
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Código: https://es.py4e.com/code3/fahren2.py&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../operadores/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Operadores" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Operadores
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../listas/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Listas y tuplas" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Listas y tuplas
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

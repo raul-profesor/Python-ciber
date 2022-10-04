@@ -1,0 +1,876 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Requests - Python para ciberseguridad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requests" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Python para ciberseguridad" class="md-header__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python para ciberseguridad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Requests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python para ciberseguridad" class="md-nav__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python para ciberseguridad
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Bienvenida a Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bienvenida a Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bienvenida a Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operadores/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../condicionales/" class="md-nav__link">
+        Estructuras de control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listas/" class="md-nav__link">
+        Listas y tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diccionarios/" class="md-nav__link">
+        Diccionarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excepciones/" class="md-nav__link">
+        Excepciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteradores/" class="md-nav__link">
+        Iteradores avanzados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modulos/" class="md-nav__link">
+        Módulos y paquetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografía
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introducción a las bibliotecas Requests y Beautiful Soup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introducción a las bibliotecas Requests y Beautiful Soup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introducción a las bibliotecas Requests y Beautiful Soup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Requests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Requests
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entendiendo-las-peticiones-http" class="md-nav__link">
+    Entendiendo las peticiones HTTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalando-requests" class="md-nav__link">
+    Instalando requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probando-requests" class="md-nav__link">
+    Probando requests
+  </a>
+  
+    <nav class="md-nav" aria-label="Probando requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peticiones-get" class="md-nav__link">
+    Peticiones GET
+  </a>
+  
+    <nav class="md-nav" aria-label="Peticiones GET">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usando-parametros-get" class="md-nav__link">
+    Usando parámetros GET
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peticiones-post" class="md-nav__link">
+    Peticiones POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manejando-excepciones" class="md-nav__link">
+    Manejando excepciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    Autenticación
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beauty/" class="md-nav__link">
+        BeautifulSoup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mechanical/" class="md-nav__link">
+        MechanicalSoup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="requests">Requests</h1>
+<p>En muchas aplicaciones web es normal conectarse a varios servicios de terceros mediante el uso de APIs. Al utilizar estas APIs puedes acceder a datos como información meteorológica, resultados deportivos, listas de películas, tweets, resultados de motores de búsqueda e imágenes entre otros ejemplos. </p>
+<p>También se pueden utilizar las APIs para añadir funcionalidad a una aplicación. Ejemplos de ello son los pagos, la programación, los correos electrónicos, las traducciones, los mapas y las transferencias de archivos. Si tuvieramos que crear cualquiera de ellas por nuestra cuenta, nos llevaría mucho tiempo, pero con las APIs, podemos tardar sólo unos minutos en conectarnos a una y acceder a sus funciones y datos.</p>
+<p>En esta sección hablaremos sobre la biblioteca Python Requests, que permite enviar peticiones HTTP en Python.</p>
+<p>Y dado que el uso de una API consiste en enviar peticiones HTTP y recibir respuestas, Requests permite utilizar las API en Python.</p>
+<h2 id="entendiendo-las-peticiones-http">Entendiendo las peticiones HTTP</h2>
+<p>Las peticiones HTTP son la forma de funcionamiento de la web. Cada vez que navegamos por una página web, el navegador realiza múltiples peticiones al servidor web. El servidor responde con todos los datos necesarios para renderizar la página, y el navegador la renderiza para que podamos verla.</p>
+<p>El proceso genérico es el siguiente:</p>
+<ul>
+<li>Un cliente (como un navegador o un script de Python usando Requests) envia algunos datos a una URL.</li>
+<li>El servidor del sitio web asociado a esa URL leerá los datos, decidirá qué hacer con ellos y devolverá una respuesta al cliente.</li>
+<li>Finalmente, el cliente puede decidir qué hacer con los datos de la respuesta.</li>
+</ul>
+<p>Parte de los datos que el cliente envía en una solicitud es el método de solicitud. Algunos métodos de solicitud comunes son <code>GET</code>, <code>POST</code> y <code>PUT</code>. Las peticiones GET son normalmente para leer datos sólo sin hacer un cambio en algo, mientras que las peticiones <code>POST</code> y <code>PUT</code> son generalmente para modificar datos en el servidor. </p>
+<p>Cuando se envía una solicitud desde un script de Python o dentro de una aplicación web, el desarrollador puede decidir qué se envía en cada solicitud y qué se hace con la respuesta.</p>
+<h2 id="instalando-requests">Instalando requests</h2>
+<p>Podemos o bien instalar de forma global la biblioteca:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pipenv install requests
+</code></pre></div>
+<p>O bien, utilizar un entorno virtual a tal efecto. </p>
+<p>Creamos una carpeta para hacer la prueba:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdir prueba_r
+</code></pre></div>
+<p>Dentro de la carpeta, ejecutamos un nuevo entorno virtual:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>pipenv shell
+</code></pre></div>
+<p>Y, una vez dentro, instalamos la biblioteca:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>pipenv install requests
+</code></pre></div>
+<h2 id="probando-requests">Probando requests</h2>
+<p>Si entramos en el entorno interactivo de Python:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>python3
+</code></pre></div>
+<p>Podemos empezar a jugar con la biblioteca. El primer paso será importar requests para poder utilizarlo realizando nuestra primera petición <code>GET</code> a una URL e imprimiendo la respuesta (o mejor dicho, su código HTTP):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://raul-profesor.github.io&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span><span class="p">]</span><span class="o">&gt;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="o">&gt;&gt;&gt;</span> 
+</code></pre></div>
+<p>Por mera curiosidad, vamos a ver qué tipo de dato es <code>r</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">requests</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Response</span><span class="s1">&#39;&gt;</span>
+</code></pre></div>
+<p>Lo que nos dice es que es una instancia de la clase <code>Response</code>. El objeto <code>Response</code> contiene el resultado de la petición HTTP.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para los ejemplos utilizaremos el sitio web [httpbin.org] (http://httpbin.org/). La herramienta httpbin es un servicio gratuito y sencillo de petición y respuesta HTTP que proporciona un conjunto de endpoints URL. Utilizamos estos endpoints para probar varias formas de trabajar con operaciones HTTP. Utilizaremos la herramienta httpbin porque nos ayuda a centrarnos en el aprendizaje de la biblioteca Python Requests sin necesidad de configurar un servidor web real o utilizar un servicio web en línea.</p>
+</div>
+<h3 id="peticiones-get">Peticiones GET</h3>
+<p>Utilizaremos las peticiones <code>GET</code> para solicitar datos de un servidor web concreto. Probemos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/json&#39;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Code:&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Headers:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Content:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>Ejecutando el código de arriba obtenemos un códido de estado 200, el cual indica que la URL es alcanzable o accesible. También devuelve los datos de las cabeceras de la página, seguido del contenido de la página.</p>
+<p>La propiedad <code>headers</code> devuelve un diccionario especial hecho sólo para cabeceras HTTP, de tal forma que podamos acceder a cada elemento simplemente usando su key o clave:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Ejecutando el comando de arriba, nos devolverá que el tipo de contenido de la página es <code>application/json</code>.</p>
+<p>En la última línea del código, podemos utilizar lapropiedad <code>content</code> que devuelve el contenido de la página como una serie de bytes, pero preferiremos usar la propiedad <code>text</code> que imprime por pantalla dicho contenido como texto decodificado en formato Unicode.</p>
+<h4 id="usando-parametros-get">Usando parámetros GET</h4>
+<p>Usamos los parámetros <code>GET</code> para pasar información en formato de parejas <em>clave-valor</em> hacia un servidor web a través de una URL. El método get nos permite pasar un diccionario de claves-valores usando el argumento <code>params</code>. Intentemoslo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/get&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="s1">&#39;website&#39;</span><span class="p">:</span><span class="s1">&#39;dataquest.io&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="s1">&#39;courses&#39;</span><span class="p">:[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span><span class="s1">&#39;SQL&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="p">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Content:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="n">Run</span> <span class="n">the</span> <span class="n">code</span> <span class="n">above</span><span class="o">.</span> <span class="n">You</span><span class="err">’</span><span class="n">ll</span> <span class="n">see</span> <span class="n">the</span> <span class="n">following</span> <span class="n">output</span><span class="p">:</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="n">Response</span> <span class="n">Content</span><span class="p">:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a> <span class="p">{</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>    <span class="s2">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>      <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>      <span class="s2">&quot;SQL&quot;</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="p">],</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>    <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;dataquest.io&quot;</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>  <span class="p">},</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>  <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>    <span class="s2">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>    <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;httpbin.org&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a>    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.27.1&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a>    <span class="s2">&quot;X-Amzn-Trace-Id&quot;</span><span class="p">:</span> <span class="s2">&quot;Root=1-61e7e066-5d0cacfb49c3c1c3465bbfb2&quot;</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a>  <span class="p">},</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a>  <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;121.122.65.155&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a>  <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://httpbin.org/get?website=dataquest.io&amp;courses=Python&amp;courses=SQL&quot;</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="p">}</span>
+</code></pre></div>
+<p>El contenido de la respuesta está en formato JSON y el par clave-valor que le pasamos a través del argumento <code>params</code>  aparece en la sección <code>args</code> de la respuesta. También la sección <code>url</code> contiene la URL codificada junto con los parámetros que se le han pasado al servidor.</p>
+<h3 id="peticiones-post">Peticiones POST</h3>
+<p>Usamos la petición POST para enviar datos recogidos de un formulario web a un servidor web. Para llevar a cabo esto con la biblioteca requests, primero necesitamos crear un diccionario de datos y asignarlo al argumento <code>data</code> del método post:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/post&#39;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="s1">&#39;website&#39;</span><span class="p">:</span><span class="s1">&#39;dataquest.io&#39;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="s1">&#39;courses&#39;</span><span class="p">:[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span><span class="s1">&#39;SQL&#39;</span><span class="p">]</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span class="p">}</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Content:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="n">Running</span> <span class="n">the</span> <span class="n">code</span> <span class="n">above</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">following</span> <span class="n">response</span><span class="p">:</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="n">Response</span> <span class="n">Content</span><span class="p">:</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a> <span class="p">{</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>  <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>  <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="s2">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>      <span class="s2">&quot;Python&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>      <span class="s2">&quot;SQL&quot;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>    <span class="p">],</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>    <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;dataquest.io&quot;</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>  <span class="p">},</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>  <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a>    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>    <span class="s2">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a>    <span class="s2">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;47&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a>    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/x-www-form-urlencoded&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a>    <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;httpbin.org&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a>    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.27.1&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a>    <span class="s2">&quot;X-Amzn-Trace-Id&quot;</span><span class="p">:</span> <span class="s2">&quot;Root=1-61e7ec9f-6333082d7f0b73d317acc1f6&quot;</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a>  <span class="p">},</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a>  <span class="s2">&quot;json&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a>  <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;121.122.65.155&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a>  <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://httpbin.org/post&quot;</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esta vez los datos enviados a través del método post aparecen en la sección <code>form</code> de la respuesta, en lugar de en <code>args</code> porque en vez de enviar los datos como parámetros dentro de la URL, los enviamos como datos codificados de un formulario.</p>
+<h3 id="manejando-excepciones">Manejando excepciones</h3>
+<p>Cuando nos comunicamos con un servidor remoto, pueden ocurrir excepciones. Por ejemplo, el servidor puede ser inalcanzable, la URL no existir en el servidor, o el servidor no responder en un marco de tiempo adecuado. Veamos como detectar y resolver errores HTTP usando la clase <code>HTTPError</code> de la biblioteca requests:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://httpbin.org/status/404&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Code:&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+</code></pre></div>
+<p>En el código de arriba, importamos la clase <code>HTTPError</code> para capturar y resolver las excepciones HTTP. Tras ello, realizamos una petición a un endpoint en <code>httpbin.org</code>, el cual genera un código de estado 404. El método <code>raise_for_status()</code> genera una excepción siempre que la respuesta HTTP contenga un códio de error (un error de cliente del tipo 4XX o una respuesta de error del servidor del tipo 5XX). </p>
+<p>La biblioteca requests no genera una excepción automáticamente una vez ocurre un error. Es por ello que necesitamos usaro el método <code>raise_for_status()</code> para identificar si un código de estado de error ha ocurrido o no. Finalmente, el manejador de excepciones bloquea la captura del error y lo imprime tal que así:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>404 Client Error: NOT FOUND for url: http://httpbin.org/status/404
+</code></pre></div>
+<div class="admonition note nota">
+<p class="admonition-title">Note</p>
+<p>Si intentamos acceder al endpoint <code>http://httpbin.org/status/200</code>, la salida del código de arriba será <code>Response Code: 200</code> porque el código de estado no está en el rango de códigos de estado de error. El método <code>raise_for_status()</code> devolverá <code>None</code>, que no hará saltar al manejador de excepciones.</p>
+</div>
+<p>Además del manejo de excepciones que acabamos de ver, veremos cómo resolver los <em>timeouts</em>. Esto es crucial porque necesitaremos asegurarnos de que nuestra aplicación no se queda esperando indefinidamente. Si una petición agota el tiempo de espera, produce una excepción del timpo <em>Timeout</em>. Para especificar qué número de segundos consideraremos como timeout, podemos usar el argumento <code>timeout</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">Timeout</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://httpbin.org/delay/10&quot;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Code:&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">except</span> <span class="n">Timeout</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+</code></pre></div>
+<p>En primer lugar importamos la clase <em>Timeout</em> para resolver la excepciones de tipo timeout y proporcionarnamos una URL que hace referencia a un endpoint con un delay de 10 segundos para probar nuestro código.</p>
+<p>Tras esto, establecemos el argumento timeout a un valor de 3 segundos, lo que provocará que si el servidor no resuelve la petición get en 3 segundos, se genere una excepción. El manejador de excepciones capturará cualquier error de timeout y lo mostrará.</p>
+<p>Así pues, el código de arriba básicamente muestra el siguiente mensaje d error porque el servidor no responderá en el tiempo indicado: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>HTTPConnectionPool(host=&#39;httpbin.org&#39;, port=80): Read timed out. (read timeout=3)
+</code></pre></div>
+<h3 id="autenticacion">Autenticación</h3>
+<p>La bibliotca requests soporta varios tipos de autenticación web, como la autenticación básica, digest, las dos versiones de 0Auth... Podemos usar estos métodos de autenticación cuando queramos trabajar con cualquier tipo de fuente de datos que requiera loguearnos.</p>
+<p>Implementaremos la autenticación básica usando <code>HTTPBin</code> con el siguiente ejemplo. El endpoint para la autenticación básica es <code>/basic-auth/{*user*}/{*password*}</code>. Por ejemplo, si quisiéramos usar el siguiente endpoint: <code>http://httpbin.org/basic-auth/data/quest</code>, podemos autenticarnos utilizando el utilizando el nombre <strong>data</strong> y el  password <strong>quest</strong> asignándolos como una tupla al argumento <code>auth</code>. </p>
+<p>Una vez autenticados satisfactoriamente, nos responderá con los datos en formato JSON:</p>
+<p><code>{ "authenticated": true, "user": "data"}</code></p>
+<p>Así pues, ejecutando el siguiente código:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/basic-auth/data/quest&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;quest&#39;</span><span class="p">))</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Code:&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Response Content:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>Obtenemos la siguiente salida:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>Response Code: 200
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>Response Content:
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a> {
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  &quot;authenticated&quot;: true,
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>  &quot;user&quot;: &quot;data&quot;
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>}
+</code></pre></div>
+<p>Si introducimos un nombre de usuario o un password incorrecto, la salida mostrará:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>Response Code: 401
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>Response Content:
+</code></pre></div>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://requests.readthedocs.io/en/latest/user/quickstart/">Documentación de biblioteca requests</a></p>
+<p><a href="https://www.dataquest.io/blog/tutorial-an-introduction-to-python-requests-library/">Tutorial: An Introduction to Python Requests Library</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../bibliografia/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Bibliografía" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Bibliografía
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../beauty/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: BeautifulSoup" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              BeautifulSoup
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

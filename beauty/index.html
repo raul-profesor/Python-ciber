@@ -1,0 +1,1088 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>BeautifulSoup - Python para ciberseguridad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beautiful-soup" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Python para ciberseguridad" class="md-header__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python para ciberseguridad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BeautifulSoup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python para ciberseguridad" class="md-nav__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python para ciberseguridad
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Bienvenida a Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bienvenida a Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bienvenida a Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operadores/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../condicionales/" class="md-nav__link">
+        Estructuras de control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listas/" class="md-nav__link">
+        Listas y tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diccionarios/" class="md-nav__link">
+        Diccionarios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excepciones/" class="md-nav__link">
+        Excepciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteradores/" class="md-nav__link">
+        Iteradores avanzados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modulos/" class="md-nav__link">
+        Módulos y paquetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografía
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introducción a las bibliotecas Requests y Beautiful Soup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introducción a las bibliotecas Requests y Beautiful Soup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introducción a las bibliotecas Requests y Beautiful Soup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BeautifulSoup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        BeautifulSoup
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-scraping" class="md-nav__link">
+    Web scraping
+  </a>
+  
+    <nav class="md-nav" aria-label="Web scraping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fundamentos-del-web-scraping" class="md-nav__link">
+    Fundamentos del web scraping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#es-legal-el-web-scraping" class="md-nav__link">
+    ¿Es legal el Web Scraping?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentes-de-una-pagina-web" class="md-nav__link">
+    Componentes de una página web
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parseando-paginas-con-beatifulsoup" class="md-nav__link">
+    Parseando páginas con BeatifulSoup
+  </a>
+  
+    <nav class="md-nav" aria-label="Parseando páginas con BeatifulSoup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encontrar-todas-las-instancias-de-una-etiqueta-o-tag-a-la-vez" class="md-nav__link">
+    Encontrar todas las instancias de una etiqueta o tag a la vez
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buscando-etiquetas-usando-class-y-id" class="md-nav__link">
+    Buscando etiquetas usando "class" y "id"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-selectores-css" class="md-nav__link">
+    Usando selectores CSS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico-scraping-de-datos-meteorologicos" class="md-nav__link">
+    Ejemplo práctico: Scraping de datos meteorológicos
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo práctico: Scraping de datos meteorológicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explorando-la-estructura-de-la-pagina-con-las-herramientas-de-desarrollador" class="md-nav__link">
+    Explorando la estructura de la página con las herramientas de desarrollador
+  </a>
+  
+    <nav class="md-nav" aria-label="Explorando la estructura de la página con las herramientas de desarrollador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#empecemos-con-el-scraping" class="md-nav__link">
+    ¡Empecemos con el scraping!
+  </a>
+  
+    <nav class="md-nav" aria-label="¡Empecemos con el scraping!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extraer-informacion-concreta-de-la-pagina" class="md-nav__link">
+    Extraer información concreta de la página
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraer-toda-la-informacion-de-la-pagina" class="md-nav__link">
+    Extraer toda la información de la página
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mechanical/" class="md-nav__link">
+        MechanicalSoup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="beautiful-soup">Beautiful Soup</h1>
+<h2 id="web-scraping">Web scraping</h2>
+<p>Internet es una fuente de datos absolutamente masiva, datos a los que podemos acceder mediante el web scraping y Python.</p>
+<p>De hecho, el web scraping es a menudo la única forma de acceder a los datos. Hay mucha información ahí fuera que no está disponible mediante cómodas exportaciones CSV o APIs fáciles de conectar. Además, los propios sitios web son a menudo valiosas fuentes de datos. Pensemos, por ejemplo, en el tipo de análisis que se podría hacer si pudieramos descargar todos los mensajes de un foro web.</p>
+<p>Para acceder a este tipo de conjuntos de datos en la página, tendremos que utilizar el web scraping.</p>
+<h3 id="fundamentos-del-web-scraping">Fundamentos del web scraping</h3>
+<p>Algunos sitios web ofrecen conjuntos de datos que se pueden descargar en formato CSV, o que son accesibles a través de una <a href="https://en.wikipedia.org/wiki/API">interfaz de programación de aplicaciones (API)</a>. Pero muchos sitios web con datos útiles no ofrecen este tipo de opciones.</p>
+<p>Veamos, por ejemplo, el caso del sitio web del Servicio Meteorológico Nacional de EEUU. Contiene previsiones meteorológicas actualizadas para todos los lugares de Estados Unidos, pero esos datos meteorológicos no son accesibles en formato CSV ni a través de la API. Hay que verlos en el propio sitio del NWS:</p>
+<p><img alt="" src="../img/nws.png" /></p>
+<p>Si quisiéramos analizar estos datos, o descargarlos para utilizarlos en alguna otra aplicación, no querríamos copiar y pegar todo a mano. El "web scraping" es una técnica que nos permite utilizar la programación para hacer el trabajo pesado. </p>
+<p>Vamos a escribir un código que busque en el sitio del NWS, coja sólo los datos con los que queremos trabajar y los proporcione en el formato que necesitamos.</p>
+<p>Cuando hacemos scraping de la web, escribimos un código que envía una petición al servidor que aloja la página que hemos especificado. El servidor devolverá el código fuente - HTML, principalmente - de la página (o páginas) que hemos solicitado.</p>
+<p>Hasta aquí, estamos haciendo esencialmente lo mismo que hace un navegador web: enviar una petición al servidor con una URL específica y pedirle que nos devuelva el código de esa página.</p>
+<p>Pero a diferencia de un navegador web, nuestro código de web scraping no interpretará el código fuente de la página y la mostrará visualmente. En su lugar, escribiremos un código personalizado que filtrará dicho código fuente en busca de los elementos concretos que hayamos especificado y extraerá el contenido que le hayamos indicado.</p>
+<p>Por ejemplo, si quisiéramos obtener todos los datos del interior de una tabla que se muestra en una página web, nuestro código se escribiría para seguir estos pasos en secuencia:</p>
+<ul>
+<li>Solicitar al servidor el contenido (código fuente) de una URL específica</li>
+<li>Descargar el contenido devuelto</li>
+<li>Identificar los elementos de la página que forman parte de la tabla que queremos</li>
+<li>Extraer y (si es necesario) reformatear esos elementos en un conjunto de datos que podamos analizar o utilizar de la forma que queramos.</li>
+</ul>
+<p>Si todo esto suena muy complicado, no hay de qué preocuparse, Python y Beautiful Soup tienen funciones integradas diseñadas para que esto sea relativamente sencillo.</p>
+<p>Una cosa que es importante tener en cuenta: desde la perspectiva de un servidor, solicitar una página a través de web scraping es lo mismo que cargarla en un navegador web. Cuando usamos código para enviar estas peticiones, podemos estar "cargando" páginas mucho más rápido que un usuario normal, y por tanto consumiendo rápidamente los recursos del servidor del propietario del sitio web.</p>
+<h3 id="es-legal-el-web-scraping">¿Es legal el Web Scraping?</h3>
+<p>Desafortunadamente, no hay una respuesta clara en este aspecto. Algunos sitios web permiten explícitamente el web scraping mientras que otros lo prohíben explícitamente. Muchos sitios web no ofrecen ninguna orientación clara en un sentido u otro.</p>
+<p>Antes de hacer scraping de cualquier sitio web, debemos buscar una página de términos y condiciones para ver si hay normas explícitas sobre el scraping. Si las hay, debemos cumplirlas. Si no las hay, se trata más bien de una cuestión de criterio.</p>
+<p>Sin embargo, hay que recordar que el scraping consume recursos del servidor del sitio web anfitrión. Si sólo hacemos scraping de una página una vez, eso no va a causar un problema. Pero si nuestro código está haciendo scraping de 1.000 páginas una vez cada diez minutos, eso rápidamente podría convertirse en un problema de costes para el propietario del sitio web.</p>
+<p><img alt="" src="../img/web-scraping.png" /></p>
+<p>Por lo tanto, además de seguir todas y cada una de las reglas explícitas sobre el web scraping publicadas en el sitio, también es una buena idea seguir una serie de buenas prácticas recomendadas:</p>
+<ul>
+<li>Nunca hacer scraping con más frecuencia de la necesaria.</li>
+<li>Considerar la posibilidad de almacenar en caché el contenido que se obtenga procedente el scraping para que sólo se descargue una vez.</li>
+<li>Incorpora pausas en tu código utilizando funciones como <code>time.sleep()</code> para no abrumar a los servidores con demasiadas peticiones demasiado rápido.</li>
+</ul>
+<p>En el ejemplo que nos ocupa, los datos del NWS son de dominio público y sus condiciones no prohíben el scraping de la web, por lo que estamos en condiciones de proceder.</p>
+<h3 id="componentes-de-una-pagina-web">Componentes de una página web</h3>
+<p>Antes de empezar a escribir código, necesitamos entender un poco acerca de la estructura de una página web ya que es lo que utilizaremos los datos deseados cuando hagamos scraping.</p>
+<p>Cuando visitamos un sitio web, nuesro navegador hace una petición a un servidor web. Esta petición será de tipo <code>GET</code> puesto que estamos obteniendo ficheros del servidor. El servidor envía de vuelta al navegador los ficheros que le indican cómo tiene que renderizar la página para el usuario. Estos archivos típicamente incluirán:</p>
+<ul>
+<li>
+<p>HTML: el contenido principal de la página</p>
+</li>
+<li>
+<p>CSS: usado para añadir estilos a las páginas y mejorar su aspecto</p>
+</li>
+<li>
+<p>JS: Javascript añade interactividad a la página web.</p>
+</li>
+<li>
+<p>Imágenes: Para ser mostradas en el sitio</p>
+</li>
+</ul>
+<p>Como hemos dicho ya, tras recibir los archivos, el navegador renderiza la página y la muestra.</p>
+<p>A la hora de llevar a cabo el scrapig, estamos interesados en el contenido principal de la web así que miraremos principalmente el código HTML.</p>
+<h2 id="html">HTML</h2>
+<p>HTML es el lenguaje en el que están creados los sitios web. No se tata de un lenguaje de programación como pueda serlo Python. Es un lenguaje de marcado que le dice al navegador como mostrar contenido.</p>
+<p>HTML tiene varias que son similiares a lo que se pudiera hacer con un procesador de textos (negrita, párrafos...).</p>
+<p>Hagamos un rapidísimo repaso de HTML.</p>
+<p>HTML está formado por elementos llamados <strong>tags o etiquetas</strong>. El más básico es <code>&lt;html&gt;</code> y es el que le indica al navegador que todo lo que vaya dentro de él es HTML. Así pues, el documento HTML más simple sería:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>No hemos añadido contenido a nuestra página todavía así que este documento HTML no mostraría nada en un navegador. Podemos poner más etiquetas dentro de las etiquetas <code>html</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>El contenido principal del sitio web lo podremos encontrar dnetro de las etiquetas <code>body</code>. La etiqueta <code>head</code> contiene información acerca dle título de la página así como otro tipo de información no útil para el web scraping.</p>
+<p>Añadamos ahora un párrafo dentro del body con su correspondiente etiqueta <code>p</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>Primer párrafo
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>Segundo párrafo
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Podemos además añadir propiedades a las etiquetas HML que cambien su comportamiento. Añadamos ahora hiperenlaces con la etiqueta <code>a</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>Primer párrafo
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.dataquest.io&quot;</span><span class="p">&gt;</span>Learn Data Science Online<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>Segundo párrafo
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.python.org&quot;</span><span class="p">&gt;</span>Python<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Que se verá así:</p>
+<p><img alt="" src="../img/web-simple.png" /></p>
+<p>En el ejemplo anterio la etiqueta <code>a</code> indica que se trata de un link y la propiedad <code>href</code> determina a donde apunta ese link.</p>
+<p>Otras etiquetas comunes son:</p>
+<ul>
+<li>div: indica una división o área de la página</li>
+<li>b: texto en negrita</li>
+<li>i: texto en cursiva</li>
+<li>table: crea una tabla</li>
+<li>form: crea un formulario</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Aquí</a> podéis encontrar la lista completa de tags o etiquetas.</p>
+<p>Para acabar con el apartado dedicado a HTML, debemos hablar de las propiedades <code>class</code> y <code>id</code>. Estas propiedade especiales proporciona nombres a los elementos HTML, haciendo así más fácil interactuar con ellos a la hora de hacer scraping.</p>
+<p>Un elemento puede tener multiples clases y una clase puede ser compartida entre elementos. Cada elemento sólo puede tener un único id y un id sólo puede usarse una vez por página.  </p>
+<p>Estos <code>class</code> y <code>id</code> son opcinoales y no todos los elementos los tendrán. Sobre el ejemplo anterior:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bold-paragraph&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>Primer párrafo
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.dataquest.io&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;learn-link&quot;</span><span class="p">&gt;</span>Learn Data Science Online<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bold-paragraph extra-large&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>Segundo párrafo
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.python.org&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;extra-large&quot;</span><span class="p">&gt;</span>Python<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Estas propiedades no modifican la forma en que se ve la página en el navegador.</p>
+<h2 id="parseando-paginas-con-beatifulsoup">Parseando páginas con BeatifulSoup</h2>
+<p>El parsing no es más que un análisis sintáctico, <a href="https://es.wikipedia.org/wiki/Analizador_sint%C3%A1ctico">como podéis leer aquí</a></p>
+<p>Supongamos que descargamos la siguiente página usando la biblioteca Requests que ya hemos visto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://dataquestio.github.io/web-scraping-pages/simple.html&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">page</span>
+</code></pre></div>
+<p>Podemos utilizar la biblioteca <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> para <em>parsear</em> este documento y extraer el texto de la etiqueta <code>p</code>.</p>
+<p>Lo primero que deberemos hacer, como siempre, es instalar BeautifulSoup. Podemos hacerlo en nuestro entorno virtual:</p>
+<p>O de forma general en nuestra máquina:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">pipenv</span> <span class="n">shell</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">pipenv</span> <span class="n">install</span> <span class="n">beautifulsoup4</span>
+</code></pre></div>
+Ahora, en el entorno interactivo de python, podemos proceder:</p>
+<p><img alt="" src="../img/bs.png" /></p>
+<p>Lo que hemos hecho ha sido importar la biblioteca y crear una instancia de la clase BeautifulSoup para parsear nuestro documento. Tras ello, hemos mostrado por pantall el contenido de la página de una forma un poco más <em>bonita</em> utilizando el método <code>prettify</code> del objeto <code>BeautifulSoup</code>.</p>
+<p>Este último paso no es estrictamente necesario aunque a veces pueda ayudarnos para que sea más fácil entender la estructura de las etiquetas de la página y el anidado entre ellas.</p>
+<p>Con la propiedad <code>children</code> de <code>soup</code> podemos seleccionar los elementos del nivel más alto. Estos elementos se devuelven en forma de lista, por lo que necesitaremos la función <code>list</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">list</span><span class="p">(</span><span class="n">soud</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+</code></pre></div>
+<p>El resultado del comando de arriba nos indicará que hay dos etiquetas de nivel superior, la etiqueta inicial <code>&lt;!DOCTYPE html&gt;</code> y la etiqueta <code>&lt;html&gt;</code>. Además aparece un carácter de nueva línea <code>\n</code> en la lista también. </p>
+<p>Para saber qué tipo de dato es cada elemento, podemos iterar sobre la lista:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">children</span><span class="p">)]</span>
+</code></pre></div>
+<p>Veremos de esta forma que que los elementos de la lista son objetos de BeautifulSoup:</p>
+<ul>
+<li>
+<p>El primero es un objeto <code>Doctype</code>, que contiene información sobre el tipo de documento</p>
+</li>
+<li>
+<p>El segundo es del tipo <code>NavegableString</code>, que indica que se ha encontrado texto el documento HTML.</p>
+</li>
+<li>
+<p>El elemento final es un <code>Tag</code>, que contiene otros tags anidados.</p>
+</li>
+</ul>
+<p>El tipo de objeto más importante y con el que lidiaremos más a menudo es el objeto <code>Tag</code>.</p>
+<p>El objeto Tag nos permite navegar a través de un documento HTML y extraer otros tags o textos. </p>
+<p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#kinds-of-objects">Aquí una lista</a> con los tipos de objetos de BeatifulSoup.</p>
+<p>Podemos seleccionar ahora el tag html y sus hijos seleccionando el tercer elemnto de la lista:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">html</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">children</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>Cada elemento devuelto por la porpiedad <code>children</code> es también un objeto BeautifulSoup, así que podremos seguir invocando el método <code>children</code> sobre <code>html</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">list</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+</code></pre></div>
+<p>Y podremos seguir iterando sobre los tags anidados hasta aislar el tag <code>p</code> que es el que nos interesa</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">body</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">children</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nb">list</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">p</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">children</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+_
+Y una vez aislado, usamos el método <code>get_text</code> para extraer todo el texto que deseamos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="encontrar-todas-las-instancias-de-una-etiqueta-o-tag-a-la-vez">Encontrar todas las instancias de una etiqueta o tag a la vez</h3>
+<p>El proceso que hemos seguido arriba es útil pero tedioso y poco eficiente. Es por ello, que si quisiéramos extraer todas las instancias de un tag dentro de una página, podemos utilizar el método <code>find_all</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Este método devuelve una lista, así que tendremos que iterar sobre ella o usar índices para extraer el texto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</code></pre></div>
+<p>Para encontrar la primera instancia que aparece en la página de un determinado tag, usaremos el método <code>find</code>, que devuelve un único objeto BeautifulSoup:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="buscando-etiquetas-usando-class-y-id">Buscando etiquetas usando "class" y "id"</h3>
+<p>Estos dos elementos, introducidos con anteriorirdad, se usan en CSS para determinar a qué elementos HTML se están aplicando ciertos estiles. Pero cuando estamos haciendo <em>scraping</em> también podemos usarlos para escpeificar los elementos que queremos <em>scrapear</em>.</p>
+<p>Para ilustrar esta sección, vamos a trabajar con la siguiente página:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>A simple example page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>            <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;inner-text first-item&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;first&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>                First paragraph.
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>            <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;inner-text&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>                Second paragraph.
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a>            <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;outer-text first-item&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;second&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a>                <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>                First outer paragraph.
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a>                <span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a>            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a>            <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;outer-text&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a>                <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a>                Second outer paragraph.
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a>                <span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a>            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Que podemos encontrar <a href="https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html">aquí</a>.</p>
+<p>Seguimos el mismo modus operandi, descargamos la página y creamos un objeto BeautifulSoup:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://dataquestio.github.io/web-scraping-pages/ids_and_classes.html&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">soup</span>
+</code></pre></div>
+<p>Ahora, para encontrar todos los elementos con el tag <code>p</code> con un <em>class</em> igual a <code>outer-text</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;outer-text&#39;</span><span class="p">)</span><span class="n">sssssssssssssssssssss</span>
+</code></pre></div>
+<p>O simplemente cualquier tag con ese <em>class</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;outer-text&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>O buscar también por <em>id</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="usando-selectores-css">Usando selectores CSS</h3>
+<p>También podemos buscar elementos usando los <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">selectores CSS</a>. Mediante estos selectores el <em>lenguaje</em> CSS permite a los desarrolladores especificar las etiquetas HTML a las que aplicar estilos. Algunos ejemplos:</p>
+<ul>
+<li><code>p a</code>: encuentra todos los tags <code>a</code> dentro de un tag <code>p</code></li>
+<li><code>body p a</code>: encuentra todos los tags <code>a</code> dentro de un tag <code>p</code> dentro de un tag <code>body</code></li>
+<li><code>html body</code>: encuentra todos los tags <code>body</code> dentro deun tag <code>html</code></li>
+<li><code>p.outer-text</code>: encuentra todos los tags <code>p</code> con la class <code>outer-text</code></li>
+<li><code>p#first</code>: encuentra todos los tags <code>p</code> con un id <code>first</code></li>
+<li><code>body p.outer-text</code>: encuentra todos los tags <code>p</code> con la class <code>outer-text</code> dentro de un tag <code>body</code></li>
+</ul>
+<p>BeautifulSoup soporta la búsqueda en una página usando selectores CSS usando el método <code>select</code>. Podemos usar estos selectores para encontrar todos los tags <code>p</code> de nuestra página que esté dentro de un <code>div</code> tal que así:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;div p&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note nota">
+<p class="admonition-title">Note</p>
+<p>El método <code>select</code> de arriba devuelve una lista de objetos BeautifulSoup, igual que <code>find</code> y <code>find_all</code></p>
+</div>
+<h2 id="ejemplo-practico-scraping-de-datos-meteorologicos">Ejemplo práctico: Scraping de datos meteorológicos</h2>
+<p>Para este ejemplo se utilizará la página de información del <a href="https://forecast.weather.gov/MapClick.php?lat=37.7772&amp;lon=-122.4168">tiempo de San Francisco</a></p>
+<p><img alt="" src="../img/forecast.png" /></p>
+<p>Como vemos en la imagen, la página contiene información ampliada de la previsión meteorológica para la semana que viene, incluyendo cosas como la temperatura o una breve descripción de las condiciones.</p>
+<h3 id="explorando-la-estructura-de-la-pagina-con-las-herramientas-de-desarrollador">Explorando la estructura de la página con las herramientas de desarrollador</h3>
+<p>Para acceder a las herramientas de desarrollador de nuestro navegador podemos apretar simplemente <strong>F12</strong> o podemos encontrarlas en <em>Herramientas &gt; Herramientas del navegador &gt; Herramientas para desarrolladores web</em> (en Firefox, en otros navegadores será similar).</p>
+<p>Si os colocáis sobre la pestaña <em>Inspector</em>, se os mostrarán todas las etiquetas/tags de la página y podréis navegar por ellas:</p>
+<p><img alt="" src="../img/inspector.png" /></p>
+<p>Si hacemos click derecho en la página, cerca de donde pone <em>Extended forecast</em> y le decimos <em>Inspeccinoar</em>, se nos abrirá el tag donde están contenidos esos elementos:</p>
+<p><img alt="" src="../img/inspeccionar.png" /></p>
+<p>En la pestaña de <em>Elements</em> también podemos ir navegando por los distintos elementos para encontrar el que contiene todo el texto que corresponde con la información del tiempo ampliada (extended forecasts). En este caso, como véis en la imagen de arriba, se trata de un <code>div</code> con el id <code>seven-day-forecast</code>.</p>
+<p>Si trasteamos un poco en la consola, podremos explorar el diva y descubiremos que cada elemento del tiempo (Tonight, Thursday, Thursday night...) está contenido en un <code>div</code> con la class <code>tombstone-container</code>.</p>
+<h4 id="empecemos-con-el-scraping">¡Empecemos con el scraping!</h4>
+<p>Ya tenemos todo lo que ncesitamos para descargarnos la página y empezar a parsear como si no hubiera un mañana. Lo que haremos, será:</p>
+<ol>
+<li>Descargar la página web que contiene la previsión del tiempo</li>
+<li>Crear una clase BeautifulSoup para parsear la página</li>
+<li>Encontrar el <code>div</code> con id <code>seven-day-forecast</code> y asignarlo a la variable <code>seven_day</code></li>
+<li>Dentro de <code>seven_day</code> deberemos encontrar cada elemento indiivdual de la previsión del tiempo</li>
+<li>Extraer e imprimir el primero de estos elementos</li>
+</ol>
+<p>Esto, traducido a código Python, sería:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">pagina</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://forecast.weather.gov/MapClick.php?lat=37.7772&amp;lon=-122.4168&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">pagina</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">seven_day</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;seven-day-forecast&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">elementos_clima</span> <span class="o">=</span> <span class="n">seven_day</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;tombstone-container&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">tonight</span> <span class="o">=</span> <span class="n">elementos_clima</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">tonight</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
+</code></pre></div>
+<h5 id="extraer-informacion-concreta-de-la-pagina">Extraer información concreta de la página</h5>
+<p>Vemos que dentro del elemento <code>tonight</code> está toda la información que deseamos. Hay cuatro piezas de información que podemos extraer:</p>
+<ul>
+<li>El nombre del elemento, en este caso <code>Tonight</code></li>
+<li>La descripción de las condiciones, almacenadas en la propiedad <code>title</code> de <code>img</code></li>
+<li>Una breve descripción de las condiciones, en este caso <code>Mostly Clear</code></li>
+<li>La mínima de temperatura, en este caso 58ºF</li>
+</ul>
+<p>Para extraer pues la información más relevante, siguiendo con el ejemplo anterior, podemos hacer:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">periodo</span> <span class="o">=</span> <span class="n">tonight</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;period-name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">desc_corta</span> <span class="o">=</span> <span class="n">tonight</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;short-desc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="n">temp</span> <span class="o">=</span> <span class="n">tonight</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;temp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">periodo</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">desc_corta</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</code></pre></div>
+Ahora, podemos extraer el atributo <code>title</code> de la etiqueta <code>img</code>. Para hacer esto, trataremos al objeto BeautifulSoup como un diccinoario y le pasaremos el atributo que queremos como una clave:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">img</span> <span class="o">=</span> <span class="n">tonight</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">desc</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="extraer-toda-la-informacion-de-la-pagina">Extraer toda la información de la página</h5>
+<p>Ahora que ya sabemos como extraer piezas de información de forma individual, podemos combinar nuestros vastos conocimientos junto con los selectores CSS y las <a href="https://j2logo.com/list-comprehensions-en-python/.">list comprehensions</a> para extraerlo todo a la vez.</p>
+<p>Los pasos a seguir para el ejemplo que nos ocupa, son:</p>
+<ul>
+<li>Seleccionar todos los elementos con la class <code>period-name</code> dentro de un elemento con la class <code>tombstone-container</code> que tengamos en la variable <code>seven_day</code></li>
+<li>Usar una <em>list comprehension</em> para invocar al método <code>get_text</code> en cada objeto BeautifulSoup.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">tags_periodo</span> <span class="o">=</span> <span class="n">seven_day</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;.tombstone-container .period-name&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">periodos</span> <span class="o">=</span> <span class="p">[</span><span class="n">pt</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">tags_periodo</span><span class="p">]</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">periodos</span>
+</code></pre></div>
+<p>A partir de aquí ya podríamos tratar la información extraída con bibliotecas como <a href="https://pandas.pydata.org/docs/">Pandas</a>, convirtiéndola en diccionarios y tablas.</p>
+<p>Sin embargo, a nosotros por lo general sólo nos interesará identificar y manipular campos de formularios con el fin de explotar diferentes fallos como puedan ser SQLi, enumeración de usuarios o fuerza bruta entre otros.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a>
+</code></pre></div>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://www.dataquest.io/blog/web-scraping-python-using-beautiful-soup/">Web Scraping with Python Using Beautiful Soup</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../requests/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Requests" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Requests
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mechanical/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: MechanicalSoup" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              MechanicalSoup
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

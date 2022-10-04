@@ -1,0 +1,875 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Diccionarios - Python para ciberseguridad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diccionarios" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Python para ciberseguridad" class="md-header__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python para ciberseguridad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diccionarios
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python para ciberseguridad" class="md-nav__button md-logo" aria-label="Python para ciberseguridad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python para ciberseguridad
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Bienvenida a Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bienvenida a Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bienvenida a Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operadores/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../condicionales/" class="md-nav__link">
+        Estructuras de control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listas/" class="md-nav__link">
+        Listas y tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Diccionarios
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Diccionarios
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recorrer-un-diccionario" class="md-nav__link">
+    Recorrer un diccionario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#borrar-un-elemento" class="md-nav__link">
+    Borrar un elemento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diccionario-como-un-conjunto-de-contadores" class="md-nav__link">
+    Diccionario como un conjunto de contadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-time" class="md-nav__link">
+    Coding time!
+  </a>
+  
+    <nav class="md-nav" aria-label="Coding time!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    Ejercicio 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    Ejercicio 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    Ejercicio 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    Ejercicio 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funciones/" class="md-nav__link">
+        Funciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../excepciones/" class="md-nav__link">
+        Excepciones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteradores/" class="md-nav__link">
+        Iteradores avanzados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modulos/" class="md-nav__link">
+        Módulos y paquetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografía
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Introducción a las bibliotecas Requests y Beautiful Soup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introducción a las bibliotecas Requests y Beautiful Soup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introducción a las bibliotecas Requests y Beautiful Soup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beauty/" class="md-nav__link">
+        BeautifulSoup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mechanical/" class="md-nav__link">
+        MechanicalSoup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="diccionarios">Diccionarios</h1>
+<p>Un diccionario es un conjunto de parejas <strong>clave- valor</strong> (key-value). Es decir, se accede a cada elemento a partir de su clave. Se definen de la siguiente manera:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">estudiante</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Martí Macià&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="s2">&quot;nota_media&quot;</span><span class="p">:</span> <span class="mf">7.25</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="s2">&quot;repetidor&quot;</span> <span class="p">:</span> <span class="kc">False</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>Las <strong>claves tienen que ser únicas</strong> y estar formadas por un <strong>string o un número</strong>. Para acceder al valor de una clave exiten dos maneras distintas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Acceder al valor de una clave</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="n">estudiante</span><span class="p">[</span><span class="s2">&quot;edad&quot;</span><span class="p">]</span> <span class="c1"># devuelve el valor de &#39;edad&#39;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">nota_media</span> <span class="o">=</span> <span class="n">estudiante</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;nota_media&quot;</span><span class="p">)</span> <span class="c1"># devuelve el valor de &#39;nota_media&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1"># Insertar o actualizar un valor:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">estudiante</span><span class="p">[</span><span class="s2">&quot;edad&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># actualiza el valor de &#39;edad&#39;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">estudiante</span><span class="p">[</span><span class="s2">&quot;suspensos&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># inserta una nueva pareja clave - valor</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># insertar una pareja clave - valor o actualizar si ya existe:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">estudiante</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;aprobados&#39;</span><span class="p">:</span><span class="s1">&#39;8&#39;</span><span class="p">})</span>
+</code></pre></div>
+<p>Algunos de los métodos más utilizados son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>diccionario.keys()</code></td>
+<td>Devuelve todas las claves del diccionario</td>
+</tr>
+<tr>
+<td><code>diccionario.values()</code></td>
+<td>Devuelve todos los valores del diccionario</td>
+</tr>
+<tr>
+<td><code>diccionario.pop(clave[,&lt;default&gt;])</code></td>
+<td>Elimina la clave del diccionario y devuelve su valor asociado. Si no la encuentra y se indica un valor por defecto, devuelve el valor por defecto indicado.</td>
+</tr>
+<tr>
+<td><code>diccionario.clear()</code></td>
+<td>Vacía el diccionario</td>
+</tr>
+<tr>
+<td><code>clave in diccionario</code></td>
+<td>Devuelve True si el diccionario contiene la clave o False en caso contrario.</td>
+</tr>
+<tr>
+<td><code>valor in diccionario.values()</code></td>
+<td>Devuelve True si el diccionario contiene el valor o False en caso contrario.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recorrer-un-diccionario">Recorrer un diccionario</h2>
+<p>La forma más habitual de recorrer un diccionario es mediante la sentencia <code>for</code>. Al recorrer un diccionario, por defecto se iterará sobre sus claves:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">diccionario</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>  <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">diccionario</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># Resultado: a b c</span>
+</code></pre></div>
+Es decir, el código anteiror será equivalente al siguiente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">diccionario</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>  <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="nb">print</span> <span class="n">key</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># Resultado: a b c</span>
+</code></pre></div>
+Por lo tanto, para iterar accediendo a los valores, realizaremos lo siguiente:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">diccionario</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>  <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">diccionario</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">diccionario</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># Resultado: 1 2 3</span>
+</code></pre></div>
+Otro manera alternativa sería empleando la función <code>items()</code>, la cual devuelve el diccionario como tuplas de tipo (key,value):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">diccionario</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>  <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El valor de </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="c1"># Resultado:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># El valor de a is 1</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># El valor de b is 2</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="c1"># El valor de c is 3</span>
+</code></pre></div></p>
+<h2 id="borrar-un-elemento">Borrar un elemento</h2>
+<p>Para borrar un elemento de un diccionario se utiliza la instrucción <code>del</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">edades</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>   <span class="s2">&quot;Ana&quot;</span> <span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>   <span class="s2">&quot;Jordi&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>   <span class="s2">&quot;Aitor&quot;</span> <span class="p">:</span> <span class="mi">15</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">del</span> <span class="n">edades</span><span class="p">[</span><span class="s2">&quot;Aitor&quot;</span><span class="p">]</span>
+</code></pre></div>
+Otra alternativa también utilizada y mencionada anteriormente es la función <code>pop()</code>, el cual devuelve el valor del elemento eliminado:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">edades</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>   <span class="s2">&quot;Ana&quot;</span> <span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>   <span class="s2">&quot;Jordi&quot;</span> <span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>   <span class="s2">&quot;Aitor&quot;</span> <span class="p">:</span> <span class="mi">15</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">edades</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Aitor&quot;</span><span class="p">)</span>
+</code></pre></div>
+Un diccionario nunca debería contener dos claves iguales. No obstante, en caso de contener una clave repetida, tanto <code>del</code> como <code>pop()</code> eliminarán todas las claves coincidentes.</p>
+<h2 id="diccionario-como-un-conjunto-de-contadores">Diccionario como un conjunto de contadores</h2>
+<p>Supongamos que recibes una cadena y quieres contar cuántas veces aparece cada letra. Hay varias formas de hacerlo:</p>
+<ol>
+<li>
+<p>Puedes crear 26 variables, una por cada letra del alfabeto. Luego puedes recorrer la cadena, y para cada caracter, incrementar el contador correspondiente, probablemente utilizando varios condicionales.</p>
+</li>
+<li>
+<p>Puedes crear una lista con 26 elementos. Después podrías convertir cada caracter en un número (usando la función interna <code>ord</code>), usar el número como
+índice dentro de la lista, e incrementar el contador correspondiente.</p>
+</li>
+<li>
+<p>Puedes crear un diccionario con caracteres como claves y contadores como los valores correspondientes. La primera vez que encuentres un caracter,
+agregarías un elemento al diccionario. Después de eso incrementarías el valor del elemento existente.</p>
+</li>
+</ol>
+<p>Cada una de esas opciones realiza la misma operación computacional, pero cada una de ellas implementa esa operación de forma diferente.</p>
+<p>Una <strong>implementación</strong> es una forma de llevar a cabo una operación computacional; algunas implementaciones son mejores que otras. Por ejemplo, una ventaja de la
+implementación del diccionario es que no tenemos que saber con antelación qué letras aparecen en la cadena y solamente necesitamos espacio para las letras que
+sí aparecen.</p>
+<p>Aquí está un ejemplo de como sería ese código:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">palabra</span> <span class="o">=</span> <span class="s1">&#39;brontosaurio&#39;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>        <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>        <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</code></pre></div>
+<p>Realmente estamos calculando un histograma, el cual es un término estadístico para un conjunto de contadores (o frecuencias).</p>
+<p>El bucle for recorre la cadena. Cada vez que entramos al bucle, si el caracter c no está en el diccionario, creamos un nuevo elemento con la clave c y el valor inicial 1 (debido a que hemos visto esta letra solo una vez). Si c ya está previamente en el diccionario incrementamos d[c].
+Aquí está la salida del programa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</code></pre></div>
+<p>El histograma indica que las letras “a” y “b” aparecen solo una vez; “o” aparece dos, y así sucesivamente.</p>
+<p>Los diccionarios tienen un método llamado <code>get</code> que toma una clave y un valor por defecto. Si la clave aparece en el diccionario, <code>get</code> regresa el valor correspondiente; sino, devuelve el valor por defecto. Por ejemplo:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">cuentas</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;chuck&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;annie&#39;</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">cuentas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="mi">100</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">cuentas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tim&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="mi">0</span>
+</code></pre></div>
+Podemos usar <code>get</code> para escribir nuestro bucle de histograma más conciso. Puesto que el método get automáticamente maneja el caso en que una clave no está en el diccionario, podemos reducir cuatro líneas a una y eliminar la sentencia <code>if</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">palabra</span> <span class="o">=</span> <span class="s1">&#39;brontosaurio&#39;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</code></pre></div>
+<p>El uso del método get para simplificar este bucle contador termina siendo un “idioma” muy utilizado en Python.</p>
+<p>Tomáos un momento para comparar el bucle utilizando la sentencia <code>if</code> y el operador <code>in</code> con el bucle utilizando el método <code>get</code>. Ambos
+hacen exactamente lo mismo, pero uno es más breve.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para completar todo lo relativo a diccionarios y descubrir el concepto de <em>nesting</em> (diccionarios de listas, listas de diccionarios, diccionarios dentro de diccionarios...), podéis consultar <a href="https://bedford-computing.co.uk/learning/wp-content/uploads/2015/10/No.Starch.Python.Oct_.2015.ISBN_.1593276036.pdf#page=142">esta parte de este capítulo</a>.</p>
+</div>
+<h2 id="coding-time">Coding time!</h2>
+<h3 id="ejercicio-1">Ejercicio 1</h3>
+<p>Crea un programa que recorra una lista y cree un diccionario que contenga el número de veces que aparece cada número en la lista.
+- Ejemplo: <code>[12, 23, 5, 12, 92, 5,12, 5, 29, 92, 64,23]</code>
+- Resultado: <code>{12: 3, 23: 2, 5: 3, 92: 2, 29: 1, 64: 1}</code></p>
+<h3 id="ejercicio-2">Ejercicio 2</h3>
+<p>Recorre un diccionario y crea una lista solo con los valores que contiene, sin añadir valores duplicados.
+- Ejemplo: <code>{'Mikel': 3, 'Ana': 8, 'Amaia': 12, 'Unai': 5, 'Jon': 8, 'Ainhoa': 7, 'Maite': 5}</code>
+- Resultado: <code>[3, 8, 12, 5, 7]</code></p>
+<h3 id="ejercicio-3">Ejercicio 3</h3>
+<p>Crea una programa de Login que compruebe el usuario y contraseña en el diccionario a continuación:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">usuarios</span> <span class="o">=</span> <span class="p">{</span>  
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>      <span class="s2">&quot;mmacia&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>          <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Martí&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>          <span class="s2">&quot;apellido&quot;</span><span class="p">:</span> <span class="s2">&quot;Macià&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>          <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123123&quot;</span>  
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>      <span class="p">},</span>  
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>      <span class="s2">&quot;fmuguruza&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>           <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Fermín&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>          <span class="s2">&quot;apellido&quot;</span><span class="p">:</span> <span class="s2">&quot;Muguruza&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>          <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;654321&quot;</span>  
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>      <span class="p">},</span>  
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>      <span class="s2">&quot;cbiriukov&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>           <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Chechu&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>          <span class="s2">&quot;apellido&quot;</span><span class="p">:</span> <span class="s2">&quot;Biriukov&quot;</span><span class="p">,</span>  
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>          <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>  
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>      <span class="p">}</span>  
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>El usuario tendrá un máximo de 3 intentos, y al acceder correctamente se mostrará el nombre y apellido del usuario.</p>
+<h3 id="ejercicio-4">Ejercicio 4</h3>
+<p>Crea un programa que permita introducir a un profesor las notas de sus estudiantes (máximo 10 estudiantes). Los datos se deberán almacenar en un diccionario como el siguiente:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">estudiantes</span> <span class="o">=</span> <span class="p">{</span>  
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>   <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>      <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Lorena&quot;</span><span class="p">,</span>  
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>      <span class="s2">&quot;nota&quot;</span><span class="p">:</span> <span class="mi">8</span>  
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>  <span class="p">},</span>  
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>  <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>      <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Marcel&quot;</span><span class="p">,</span>  
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>      <span class="s2">&quot;nota&quot;</span><span class="p">:</span> <span class="s2">&quot;4.2&quot;</span>  
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>  <span class="p">},</span>  
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>  <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="p">{</span>  
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>      <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Julio&quot;</span><span class="p">,</span>  
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>      <span class="s2">&quot;nota&quot;</span><span class="p">:</span> <span class="mf">6.5</span>  
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>  <span class="p">}</span>  
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="p">}</span>
+</code></pre></div>
+Una vez introducidos todos los datos, el programa mostrará una lista con los nombres de los estudiantes que han suspendido y otra con los que han aprobado. También calculará y mostrará la nota media de la clase.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Volver al principio
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../listas/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas y tuplas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Listas y tuplas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../funciones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Funciones" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Funciones
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
