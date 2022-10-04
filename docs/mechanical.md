@@ -93,6 +93,23 @@ browser.get_current_form().print_summary()
 + `print_summary` nos mostrará todos los campos disponibles del formulario
 
 
+Para rellenar el formulario, podemos utilizar los siguientes comandos:
+
+```python
+browser["custname"] = "Mohit"
+browser["custtel"] = "9081515151"
+browser["custemail"] = "mohitmaithani@aol.com"
+browser["comments"] = "please make pizza dough more soft"
+browser["size"] = "large"
+browser["topping"] = "mushroom"
+```
+
+
+
+
+
+
+
 ## Referencias
 
 [MechanicalSoup tutorial - First contact, step by step](https://mechanicalsoup.readthedocs.io/en/stable/tutorial.html)
