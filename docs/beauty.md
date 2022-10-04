@@ -442,11 +442,23 @@ print(desc)
 ```
 ##### Extraer toda la información de la página
 
+Ahora que ya sabemos como extraer piezas de información de forma individual, podemos combinar nuestros vastos conocimientos junto con los selectores CSS y las [list comprehensions](https://j2logo.com/list-comprehensions-en-python/.) para extraerlo todo a la vez.
 
+Los pasos a seguir para el ejemplo que nos ocupa, son:
+
++ Seleccionar todos los elementos con la class `period-name` dentro de un elemento con la class `tombstone-container` que tengamos en la variable `seven_day`
++ Usar una *list comprehension* para invocar al método `get_text` en cada objeto BeautifulSoup.
 
 ```python
-
+tags_periodo = seven_day.select(".tombstone-container .period-name")
+periodos = [pt.get_text() for pt in tags_periodo]
+periodos
 ```
+
+A partir de aquí ya podríamos tratar la información extraída con bibliotecas como [Pandas](https://pandas.pydata.org/docs/), convirtiéndola en diccionarios y tablas.
+
+Sin embargo, a nosotros por lo general sólo nos interesará identificar y manipular campos de formularios con el fin de explotar diferentes fallos como puedan ser SQLi, enumeración de usuarios o fuerza bruta entre otros.
+
 
 ```python
 
