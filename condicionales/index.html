@@ -820,12 +820,11 @@
 <p>Cuando estamos trabajando con el intérprete de Python, tras el error simplemente nos aparece de nuevo el prompt, así que pensamos “¡epa, me he equivocado!”, y continuamos con la siguiente sentencia.</p>
 <p>Sin embargo, si se escribe ese código en un script de Python y se produce el error, el script se detendrá inmediatamente, y mostrará un “traceback”. No ejecutará la siguiente sentencia.</p>
 <p>He aquí un programa de ejemplo para convertir una temperatura desde grados Fahrenheit a grados Celsius <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">ent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Introduzca la Temperatura Fahrenheit:&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">ent</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Introduzca la Temperatura Fahrenheit:&#39;</span><span class="p">)</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">fahr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">cel</span> <span class="o">=</span> <span class="p">(</span><span class="n">fahr</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">cel</span><span class="p">)</span>
 </code></pre></div>
-[:1] Código: https://es.py4e.com/code3/fahren.py</p>
 <p>Si ejecutamos este código y le damos una entrada no válida, simplemente fallará con un mensaje de error bastante antipático:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">python</span> <span class="n">fahren</span><span class="o">.</span><span class="n">py</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">Introduzca</span> <span class="n">la</span> <span class="n">Temperatura</span> <span class="n">Fahrenheit</span><span class="p">:</span><span class="mi">72</span>
