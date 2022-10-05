@@ -79,7 +79,7 @@ Como se puede ver en el siguiente ejemplo, es posible también mostrar un mensaj
 Escribe tu nombre: Leire
 >>> print(nombre)
 Leire
- ```
+```
 
 ## Números
 Python soporta dos tipos de números: enteros (integer) y de punto flotante (float).
@@ -181,7 +181,7 @@ frase = "Meses: {1}, {0} y {2}".format('Enero','Febrero','Marzo')
 print(frase)
 
 # Especificar el orden mediante parejas clave-valor:
-frase = "Meses: {ene}, {feb} y {mar}".format(ene='Enero', feb='Febrero',m='Marzo')
+frase = "Meses: {ene}, {feb} y {mar}".format(ene='Enero', feb='Febrero',mar='Marzo')
 print(frase)
 ```
 

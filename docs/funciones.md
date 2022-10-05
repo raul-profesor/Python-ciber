@@ -39,7 +39,7 @@ Existen dos tipos de parámetros o argumentos:
 def suma(a, b):
 	resultado = a + b
 	print(resultado)
-suma(45, 20) # parámentros posicionales
+suma(45, 20) # parámetros posicionales
 suma(b=20,a=45) # parametros mediante clave
 ```
 

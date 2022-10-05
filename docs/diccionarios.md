@@ -11,7 +11,7 @@ estudiante = {
 }
 ```
 
-Las **claves tienen que ser únicas** y estar formadas por un **string o un número**. Para acceder al valor de una clave exiten dos maneras distintas:
+Las **claves tienen que ser únicas** y estar formadas por un **string o un número**. Para acceder al valor de una clave existen dos maneras distintas:
 
 ```python
 # Acceder al valor de una clave
@@ -47,7 +47,7 @@ for key in diccionario:
 
 # Resultado: a b c
 ```
-Es decir, el código anteiror será equivalente al siguiente:
+Es decir, el código anterior será equivalente al siguiente:
 ```python
 diccionario =  {'a':1,  'b':2,  'c':3}
 for key in diccionario.keys():

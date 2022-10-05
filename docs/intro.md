@@ -12,7 +12,7 @@ Algunos de estos beneficios son:
 
 Python fue diseñado intencionadamente para ser un lenguaje de programación sencillo, fácil y, en general, ligero, que requiriera un código mínimo para realizar las tareas en comparación con otros lenguajes. 
 
-El hecho es que Python a menudo requiere mucho menos código que el que se requeriría de otros lenguajes de programación, como C o Java. La naturaleza de de Python da lugar a una curva de aprendizaje más corta para cualquiera que trabaje con el lenguaje, especialmente para aquellos que son nuevos en la programación.
+El hecho es que Python a menudo requiere mucho menos código que el que se requeriría de otros lenguajes de programación, como C o Java. La naturaleza de Python da lugar a una curva de aprendizaje más corta para cualquiera que trabaje con el lenguaje, especialmente para aquellos que son nuevos en la programación.
 
 ### Python facilita el debugging o depuración
 
@@ -22,7 +22,7 @@ El diseño directo de Python y su facilidad de uso también aumentan su legibili
 
 ### Es open source
 
-Python fue desarrollado como un lenguaje de programación de código abierto, de forma similar a como Linux.
+Python fue desarrollado como un lenguaje de programación de código abierto, de forma similar a Linux.
 
 La naturaleza de código abierto de Python se presta a una fuerte comunidad de desarrolladores que apoyan el lenguaje y lo hacen avanzar. Dado que Python es de código abierto, hay una gran cantidad de información disponible, y el uso del lenguaje es gratuito.
 
@@ -32,7 +32,7 @@ Otro beneficio de Python que algunas personas no tienen en cuenta es que tiene l
 
 La gestión de memoria de Python se realiza internamente mediante su propio gestor. Esto significa que el programador y el usuario deben preocuparse menos por la gestión de la memoria, incluyendo factores como el almacenamiento en caché, la asignación de memoria y la segmentación.
 
-![](img/Python.png){:width="300"}.
+![](img/Python.png){:width="300"}
 
 
 ## ¿Por qué Python en ciberseguridad?

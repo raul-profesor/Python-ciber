@@ -237,7 +237,7 @@ fahr = float(ent)
 cel = (fahr - 32.0) * 5.0 / 9.0
 print(cel)
 ```
-[:1] Código: https://es.py4e.com/code3/fahren.py
+
 
 Si ejecutamos este código y le damos una entrada no válida, simplemente fallará con un mensaje de error bastante antipático:
 

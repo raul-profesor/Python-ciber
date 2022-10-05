@@ -3,23 +3,24 @@
 Las listas permiten **guardar más de un elemento** dentro de una variable, y además hacerlo en un orden concreto. Pueden contener un número **ilimitado** de elementos de **cualquier tipo**:
 
 ```python
-    # Lista vacía
-    lista_vacia = []
+# Lista vacía
+lista_vacia = []
 
-    # Lista con valores
-    alumnos = ["Ane", "Unai", "Itziar", "Mikel"]
-    
-    # Acceder a elementos
-    print(alumnos[0]) # muestra "Ane"
-    print(alumnos[1]) # muestra "Unai"
-    print(alumnos[2]) # muestra "Itziar"
-    print(alumnos[-1]) # muestra "Mikel"
-    
-    # Cambiar un elemento
-    alumnos[0] = "Nora" 
+# Lista con valores
+alumnos = ["Ane", "Unai", "Itziar", "Mikel"]
+
+# Acceder a elementos
+print(alumnos[0]) # muestra "Ane"
+print(alumnos[1]) # muestra "Unai"
+print(alumnos[2]) # muestra "Itziar"
+print(alumnos[-1]) # muestra "Mikel"
+
+# Cambiar un elemento
+alumnos[0] = "Nora" 
 ```
 
 Los **métodos más utilizados** con las listas son los siguientes:
+
 | Método | Acción |
 |--|--|
 | `alumnos.append("Amaia")` | Inserta "Jon" al final de la lista |
@@ -56,17 +57,17 @@ La forma habitual de recorrer una lista es mediante la sentencia `for`, tal y co
 
 ```python
     for elemento in ['Python','JavaScript','JAVA']:
-        print("Programo en ", elemento)
+        print("Programo en", elemento)
 ```
 De igual manera se podría hacer mediante la sentencia `while`:
 
 ```python
-    lista =  ['Python','JavaScript','JAVA']
-    i = 0
-    sizeofList = len(lista) 
-    while i < sizeofList :
-        print(lista[i]) 
-        i += 1
+lista =  ['Python','JavaScript','JAVA']
+i = 0
+sizeofList = len(lista) 
+while i < sizeofList :
+    print(lista[i]) 
+    i += 1
 ```
 
 
@@ -105,6 +106,7 @@ Una acción típica de las tuplas es "desempaquetar" (unpack) sus valores, es de
 
 ### Ejercicio 1
 Dada la siguiente lista `[12, 23, 5, 29, 92, 64]` realiza las siguientes operaciones y vete mostrando la lista resultante por pantalla:
+
 1. Elimina el último número y añádelo al principio.
 2. Mueve el segundo elemento a la última posición.
 3. Añade el número `14` al comienzo de la lista.
@@ -128,6 +130,9 @@ Resultado:
 ```
 
 ### Ejercicio 2
-Crea un programa que solicite al usuario 5 números y los guarde en una lista. A continuación el programa pedirá otros 5 números al usuario almacenándolos en una segunda lista. El programa mostrará al usuario una lista que contenga los números que tienen en común las dos listas anteriores.
+Crea un programa que solicite al usuario 5 números y los guarde en una lista. A continuación el programa pedirá otros 5 números al usuario almacenándolos en una segunda lista. 
+
+El programa mostrará al usuario una lista que contenga los números que tienen en común las dos listas anteriores.
+
 - Ejemplo: Lista 1 = `[6,14,11,78,5]` y Lista 2 = `[3,14,22,78,9]`
 - Resultado: `[14, 78]`
