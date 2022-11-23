@@ -51,7 +51,7 @@ Es decir, el código anterior será equivalente al siguiente:
 ```python
 diccionario =  {'a':1,  'b':2,  'c':3}
 for key in diccionario.keys():
-	print key
+	print(key)
 
 # Resultado: a b c
 ```

@@ -211,7 +211,7 @@ Este último paso no es estrictamente necesario aunque a veces pueda ayudarnos p
 Con la propiedad `children` de `soup` podemos seleccionar los elementos del nivel más alto. Estos elementos se devuelven en forma de lista, por lo que necesitaremos la función `list`:
 
 ```python
-list(soud.children)
+list(soup.children)
 ```
 
 El resultado del comando de arriba nos indicará que hay dos etiquetas de nivel superior, la etiqueta inicial `<!DOCTYPE html>` y la etiqueta `<html>`. Además aparece un carácter de nueva línea `\n` en la lista también. 
@@ -458,59 +458,6 @@ periodos
 A partir de aquí ya podríamos tratar la información extraída con bibliotecas como [Pandas](https://pandas.pydata.org/docs/), convirtiéndola en diccionarios y tablas.
 
 Sin embargo, a nosotros por lo general sólo nos interesará identificar y manipular campos de formularios con el fin de explotar diferentes fallos como puedan ser SQLi, enumeración de usuarios o fuerza bruta entre otros.
-
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
 
 ## Referencias
 

@@ -8,10 +8,12 @@ nav:
       - Diccionarios: diccionarios.md
       - Funciones: funciones.md
       - Excepciones: excepciones.md
-      - Iteradores avanzados: iteradores.md
       - Módulos y paquetes: modulos.md
       - Bibliografía: bibliografia.md
     - Introducción a las bibliotecas Requests y Beautiful Soup:
       - Requests: requests.md
       - BeautifulSoup: beauty.md
       - MechanicalSoup: mechanical.md
+    - Ejercicios de Python para cibeseguridad:
+      - Programamos un keylogger: keylogger.md
+      - Busquemos inyecciones SQL: SQLi.md

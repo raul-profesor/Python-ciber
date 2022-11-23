@@ -79,7 +79,7 @@ Por mera curiosidad, vamos a ver qué tipo de dato es `r`:
 Lo que nos dice es que es una instancia de la clase `Response`. El objeto `Response` contiene el resultado de la petición HTTP.
 
 !!!note "Nota"
-    Para los ejemplos utilizaremos el sitio web [httpbin.org] (http://httpbin.org/). La herramienta httpbin es un servicio gratuito y sencillo de petición y respuesta HTTP que proporciona un conjunto de endpoints URL. Utilizamos estos endpoints para probar varias formas de trabajar con operaciones HTTP. Utilizaremos la herramienta httpbin porque nos ayuda a centrarnos en el aprendizaje de la biblioteca Python Requests sin necesidad de configurar un servidor web real o utilizar un servicio web en línea.
+    Para los ejemplos utilizaremos el sitio web [httpbin.org](http://httpbin.org/). La herramienta httpbin es un servicio gratuito y sencillo de petición y respuesta HTTP que proporciona un conjunto de endpoints URL. Utilizamos estos endpoints para probar varias formas de trabajar con operaciones HTTP. Utilizaremos la herramienta httpbin porque nos ayuda a centrarnos en el aprendizaje de la biblioteca Python Requests sin necesidad de configurar un servidor web real o utilizar un servicio web en línea.
 
 ### Peticiones GET
 
@@ -103,7 +103,7 @@ print(r.headers['Content-Type'])
 
 Ejecutando el comando de arriba, nos devolverá que el tipo de contenido de la página es `application/json`.
 
-En la última línea del código, podemos utilizar lapropiedad `content` que devuelve el contenido de la página como una serie de bytes, pero preferiremos usar la propiedad `text` que imprime por pantalla dicho contenido como texto decodificado en formato Unicode.
+En la última línea del código, podemos utilizar la propiedad `content` que devuelve el contenido de la página como una serie de bytes, pero preferiremos usar la propiedad `text` que imprime por pantalla dicho contenido como texto decodificado en formato Unicode.
 
 
 #### Usando parámetros GET
@@ -118,9 +118,11 @@ payload = {
     }
 r = requests.get(url, params=payload)
 print('Response Content:\n',r.text)
+```
 
-Run the code above. You’ll see the following output:
+Corriendo el código de arriba, se obtiene una respuesta como esta:
 
+```json
 Response Content:
  {
   "args": {
@@ -137,7 +139,7 @@ Response Content:
     "User-Agent": "python-requests/2.27.1",
     "X-Amzn-Trace-Id": "Root=1-61e7e066-5d0cacfb49c3c1c3465bbfb2"
   },
-  "origin": "121.122.65.155",
+  "origin": "172.123.65.155",
   "url": "http://httpbin.org/get?website=dataquest.io&courses=Python&courses=SQL"
 }
 ```
@@ -156,9 +158,11 @@ payload = {
     }
 r = requests.post(url, data=payload)
 print('Response Content:\n',r.text)
+```
 
-Running the code above returns the following response:
+Corriendo el código de arriba, se obtiene una respuesta como esta:
 
+```json
 Response Content:
  {
   "args": {},
@@ -181,7 +185,7 @@ Response Content:
     "X-Amzn-Trace-Id": "Root=1-61e7ec9f-6333082d7f0b73d317acc1f6"
   },
   "json": null,
-  "origin": "121.122.65.155",
+  "origin": "172.123.65.155",
   "url": "http://httpbin.org/post"
 }
 ```
