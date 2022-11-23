@@ -288,7 +288,7 @@ soup.find('p')
 
 ### Buscando etiquetas usando "class" y "id"
 
-Estos dos elementos, introducidos con anteriorirdad, se usan en CSS para determinar a qué elementos HTML se están aplicando ciertos estiles. Pero cuando estamos haciendo *scraping* también podemos usarlos para escpeificar los elementos que queremos *scrapear*.
+Estos dos elementos, introducidos con anteriorirdad, se usan en CSS para determinar a qué elementos HTML se están aplicando ciertos estilos. Pero cuando estamos haciendo *scraping* también podemos usarlos para escpeificar los elementos que queremos *scrapear*.
 
 Para ilustrar esta sección, vamos a trabajar con la siguiente página:
 
@@ -333,7 +333,7 @@ soup
 Ahora, para encontrar todos los elementos con el tag `p` con un *class* igual a `outer-text`:
 
 ```python
-soup.find_all('p', class_='outer-text')sssssssssssssssssssss
+soup.find_all('p', class_='outer-text')
 ```
 
 O simplemente cualquier tag con ese *class*:
@@ -433,7 +433,7 @@ print(periodo)
 print(desc_corta)
 print(temp)
 ```
-Ahora, podemos extraer el atributo `title` de la etiqueta `img`. Para hacer esto, trataremos al objeto BeautifulSoup como un diccinoario y le pasaremos el atributo que queremos como una clave:
+Ahora, podemos extraer el atributo `title` de la etiqueta `img`. Para hacer esto, trataremos al objeto BeautifulSoup como un diccionario y le pasaremos el atributo que queremos como una clave:
 
 ```python
 img = tonight.find("img")
