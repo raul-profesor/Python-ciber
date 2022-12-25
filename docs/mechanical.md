@@ -118,40 +118,41 @@ Y con esto damos por presentados los fundamentos más básicos de MechanicalSoup
 ## Haciendo scraping de imágenes de hackers
 
 
-import mechanicalsoup
+```python
+import mechanicalsoup #(1)
  
 browser = mechanicalsoup.StatefulBrowser()
 url = "https://www.google.com/imghp?hl=en"
  
 browser.open(url)
+  
  
-#get HTML
+#obtener el HTML
 browser.get_current_page()
  
-#target the search input
+#localizar el input para la búsqueda
 browser.select_form()
 browser.get_current_form().print_summary()
  
-#search for a term
-search_term = 'cat'
+#buscar el término concreto
+search_term = 'hacker'
 browser["q"] = search_term 
  
-#submit/"click" search
-browser.launch_browser()
-response = browser.submit_selected()
+#enviar o hacer "click" en buscar
+respuesta = browser.submit_selected()
  
-print('new url:', browser.get_url())
-print('response:\n', response.text[:500])
+print('nueva url:', browser.get_url())
+print('respuesta:\n', respuesta.text[:500])
 
-#open URL
-new_url = browser.get_url()
-browser.open(new_url)
+#abrir la URL #(2)
+nueva_url = browser.get_url()
+browser.open(nueva_url)
  
-#get HTML code
+#obtener el código HTML
 page = browser.get_current_page()
 all_images = page.find_all('img')
  
-#target the source attributes of image
+#localizar los atributos de cada imagen
 image_source = []
 for image in all_images:
     image = image.get('src')
@@ -159,33 +160,48 @@ for image in all_images:
  
 image_source[5:25]
 
-#save cleaned links in "image_source"
+#guardar los links "limpios" en 'image_source'
 image_source = [image for image in image_source if image.startswith('https')]
 
 print(image_source)
 
 
-import os
+import os #(4)
  
 path = os.getcwd()
 path = os.path.join(path, search_term + "s")
  
-#create the directory
+#crear el directorio
 os.mkdir(path)
-#print path where cats images are going to save
+#imprimir el path donde se van a guardar las imágenes de hackers
 path
 
-
-##download wget by uncommenting below line
+##Descargar wget descomentando la línea de abajo #(5)
 #pip install wget  
 
-##download images
+##descargar imágenes
 counter = 0
 for image in image_source:
     save_as = os.path.join(path, search_term + str(counter) + '.jpg')
     wget.download(image, save_as)
     counter += 1
+```
+
+
+1. Buscar imágenes de hackers en Google. Establecemos la petición/query y hacemos que se abra en el navegador con el texto *hackers*
+2. Navegar a las páginas nuevas y apuntar a todas las imágenes, lo que devolverá la lista de todas las URLs
+3. Arreglamos las URLs corruptas. La función de Python `startswith` permite filtrar las URLs para que no empiecen por **HTTPS**
+4. Crear un repositorio local para guardar las imágenes
+5. Usamos `wget` para descargar
+ 
+
+!!!info
+    MechanicalSoop es una composición de las bibliotecas Requests, BeautifulSoup y teniendo algo de las capacidades de Selenium en cuanto navegación en tiempo real.
+
+
 
 ## Referencias
 
 [MechanicalSoup tutorial - First contact, step by step](https://mechanicalsoup.readthedocs.io/en/stable/tutorial.html)
+
+[A Deep Dive Into Web Scraping Using MechanicalSoup](https://analyticsindiamag.com/mechanicalsoup-web-scraping-custom-dataset-tutorial/)

@@ -25,42 +25,53 @@ s.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit
 + [`urllib.parse`](https://rico-schmidt.name/pymotw-3/urllib.parse/index.html) para dividir las URLs en fragmentos y [`urljoin`](https://docs.python.org/es/3/library/urllib.parse.html#urllib.parse.urljoin) permite construir URLs
 + [`pprint`](https://docs.python.org/es/3/library/pprint.html) para imprimir datos de forma "bonita"
 
-def get_all_forms(url):
-    """Given a `url`, it returns all forms from the HTML content"""
+También inicializamos la sesión de `requests` y establecemos el user-agent del "navegador".
+
+Puesto que la inyección SQL se basa en las entradas o inputs del usuario, necesitaremos extraer primero los formularios de la web. 
+
+```python
+def get_all_forms(url): # (1)
     soup = bs(s.get(url).content, "html.parser")
     return soup.find_all("form")
 
-
-def get_form_details(form):
-    """
-    This function extracts all possible useful information about an HTML `form`
-    """
+def get_form_details(form): # (2)    
     details = {}
-    # get the form action (target url)
-    try:
+       
+    try: # (3)
         action = form.attrs.get("action").lower()
     except:
         action = None
-    # get the form method (POST, GET, etc.)
-    method = form.attrs.get("method", "get").lower()
-    # get all the input details such as type and name
-    inputs = []
+
+    method = form.attrs.get("method").lower() # (4)
+
+    inputs = [] # (5)
     for input_tag in form.find_all("input"):
         input_type = input_tag.attrs.get("type", "text")
         input_name = input_tag.attrs.get("name")
         input_value = input_tag.attrs.get("value", "")
         inputs.append({"type": input_type, "name": input_name, "value": input_value})
-    # put everything to the resulting dictionary
-    details["action"] = action
+
+    details["action"] = action # (6)
     details["method"] = method
     details["inputs"] = inputs
     return details
+```
+
+1. Dada una 'url'. devuelve todos los formularios  que contiene el código HTML
+2. Esta función extrae toda la posible información útil de un formulario HTML
+3. Se extrae el atributo [form action](https://www.w3schools.com/tags/att_form_action.asp) de la URL objetivo
+4. Obtenemos el método HTTP utilizado por el formulario (POST, GET ...)
+5. Se obtienen todos los detalles de los datos de entrada, tales como el tipo y el nombre
+6. Guardamos todos los resultados en un diccionario
+
+`get_all_forms()` utiliza **BeautifulSoup** para extraer todas las etiquetas/tags del código HTML y devolerlas en forma de lista, mientras que la función `get_form_detgails()` recibe una etiqueta única del formulario como argumento y parsea la información útil del mismo.
+
+A continuación definiremos una función que nos dirá si una página contiene errores SQL, lo cual nos será útil para comprobar si existe una vulnerabilidad del tipo SQL injection.
 
 
-def is_vulnerable(response):
-    """A simple boolean function that determines whether a page 
-    is SQL Injection vulnerable from its `response`"""
-    errors = {
+```python
+def is_vulnerable(response): # (1)
+    errors = { 
         # MySQL
         "you have an error in your sql syntax;",
         "warning: mysql",
@@ -69,62 +80,84 @@ def is_vulnerable(response):
         # Oracle
         "quoted string not properly terminated",
     }
-    for error in errors:
-        # if you find one of these errors, return True
+    for error in errors: 
+        # Si se encuentra algunos de estos errores, devuelve True
         if error in response.content.decode().lower():
             return True
-    # no error detected
+    # No se ha detectado error
     return False
+```
 
+1. Una simple función booleana que determina si una página es vulnerable a un SQL injection analizando su respuesta
+   
+Obviamente no podemos definir errores para todos los servidores de bases de datos. Para abarcar el máximo número de posibilidades de tipos de error, deberíamos hacer uso de las [expresiones regulares](https://www.adictosaltrabajo.com/2015/01/29/regexsam/).
 
+```python
 def scan_sql_injection(url):
-    # test on URL
+    # probar en la URL
     for c in "\"'":
-        # add quote/double quote character to the URL
+        # añadir comillas o dobles comillas a la URL
         new_url = f"{url}{c}"
         print("[!] Trying", new_url)
-        # make the HTTP request
+        # "fabricamos" la petición HTTP
         res = s.get(new_url)
-        if is_vulnerable(res):
-            # SQL Injection detected on the URL itself, 
-            # no need to preceed for extracting forms and submitting them
+        if is_vulnerable(res): #(1)
             print("[+] SQL Injection vulnerability detected, link:", new_url)
             return
-    # test on HTML forms
+    # probamos los fomularios HTML
     forms = get_all_forms(url)
     print(f"[+] Detected {len(forms)} forms on {url}.")
     for form in forms:
         form_details = get_form_details(form)
         for c in "\"'":
-            # the data body we want to submit
+            # los datos del cuerpo de la petición que queremos enviar
             data = {}
             for input_tag in form_details["inputs"]:
-                if input_tag["value"] or input_tag["type"] == "hidden":
-                    # any input form that has some value or hidden,
-                    # just use it in the form body
+                if input_tag["value"] or input_tag["type"] == "hidden": # (2)
                     try:
                         data[input_tag["name"]] = input_tag["value"] + c
                     except:
                         pass
                 elif input_tag["type"] != "submit":
-                    # all others except submit, use some junk data with special character
+                    #todos los tipos excepto *submit*, usando datos basura como 
+                    #caractéres especiales
                     data[input_tag["name"]] = f"test{c}"
-            # join the url with the action (form request URL)
-            url = urljoin(url, form_details["action"])
+            url = urljoin(url, form_details["action"]) # (3)
             if form_details["method"] == "post":
                 res = s.post(url, data=data)
             elif form_details["method"] == "get":
                 res = s.get(url, params=data)
-            # test whether the resulting page is vulnerable
+            # comprobar si la página resultante es vulnerable
             if is_vulnerable(res):
                 print("[+] SQL Injection vulnerability detected, link:", url)
                 print("[+] Form:")
                 pprint(form_details)
                 break   
+```
 
+1. Se ha detectado un SQLi en la misma URL, no es necesario proceder más allá para extraer formularios y enviarlos
+2. Cualquier *input* del formulario que tiene algún valor u oculto, sólo para usarlo en el cuerpo de la petición
+3.  Se junta (join) la URL con el `action` (la URL de la petición del formulario)
+   
+Antes de extraer los formularios y enviarlos, la función de arriba comprueba primero si hay vulnerabilidad en la misma URL. Esto lo hace simplemente añadiendo una comilla `'` a la URL.
+
+Tras ello se utiliza la biblioteca `requests` para realizar la petición y se compreba si el contenido de la respuesta contiene los errores que estamos buscando.
+
+A continuación, "parseamos" los formularios y hacemos "submit" de cada uno de los que hemos encontrado añadiendo las comillas.
+
+Así pues, el `main` de nuestro script queda así:
+
+```python
 if __name__ == "__main__":
     import sys
     url = sys.argv[1]
     scan_sql_injection(url)
-
 ```
+
+
+
+
+# Referencias
+
+[Code for How to Build a SQL Injection Scanner in Python Tutorial](https://www.thepythoncode.com/code/sql-injection-vulnerability-detector-in-python)
+
