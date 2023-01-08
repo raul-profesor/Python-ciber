@@ -11,7 +11,6 @@ Ahora, debemos importar los módulos que vamos a necesitar en nuestro script:
 
 ```py
 import requests
-# import re # uncomment this for DVWA
 from bs4 import BeautifulSoup as bs
 from urllib.parse import urljoin
 from pprint import pprint
@@ -30,11 +29,11 @@ También inicializamos la sesión de `requests` y establecemos el user-agent del
 Puesto que la inyección SQL se basa en las entradas o inputs del usuario, necesitaremos extraer primero los formularios de la web. 
 
 ```python
-def get_all_forms(url): # (1)
-    soup = bs(s.get(url).content, "html.parser")
+def get_all_forms(_______): # (1)
+    soup = bs(s.get(_______).content, "_______")
     return soup.find_all("form")
 
-def get_form_details(form): # (2)    
+def get_form_details(_______): # (2)    
     details = {}
        
     try: # (3)
@@ -45,7 +44,7 @@ def get_form_details(form): # (2)
     method = form.attrs.get("method").lower() # (4)
 
     inputs = [] # (5)
-    for input_tag in form.find_all("input"):
+    for input_tag in _______.find_all("input"):
         input_type = input_tag.attrs.get("type", "text")
         input_name = input_tag.attrs.get("name")
         input_value = input_tag.attrs.get("value", "")
@@ -54,7 +53,7 @@ def get_form_details(form): # (2)
     details["action"] = action # (6)
     details["method"] = method
     details["inputs"] = inputs
-    return details
+    return _______
 ```
 
 1. Dada una 'url'. devuelve todos los formularios  que contiene el código HTML
@@ -64,13 +63,13 @@ def get_form_details(form): # (2)
 5. Se obtienen todos los detalles de los datos de entrada, tales como el tipo y el nombre
 6. Guardamos todos los resultados en un diccionario
 
-`get_all_forms()` utiliza **BeautifulSoup** para extraer todas las etiquetas/tags del código HTML y devolerlas en forma de lista, mientras que la función `get_form_detgails()` recibe una etiqueta única del formulario como argumento y parsea la información útil del mismo.
+`get_all_forms()` utiliza **BeautifulSoup** para extraer todas las etiquetas/tags del código HTML y devolerlas en forma de lista, mientras que la función `get_form_details()` recibe una etiqueta única del formulario como argumento y parsea la información útil del mismo.
 
 A continuación definiremos una función que nos dirá si una página contiene errores SQL, lo cual nos será útil para comprobar si existe una vulnerabilidad del tipo SQL injection.
 
 
 ```python
-def is_vulnerable(response): # (1)
+def es_vulnerable(_______): # (1)
     errors = { 
         # MySQL
         "you have an error in your sql syntax;",
@@ -82,7 +81,7 @@ def is_vulnerable(response): # (1)
     }
     for error in errors: 
         # Si se encuentra algunos de estos errores, devuelve True
-        if error in response.content.decode().lower():
+        if error in respuesta.content.decode().lower():
             return True
     # No se ha detectado error
     return False
@@ -93,26 +92,26 @@ def is_vulnerable(response): # (1)
 Obviamente no podemos definir errores para todos los servidores de bases de datos. Para abarcar el máximo número de posibilidades de tipos de error, deberíamos hacer uso de las [expresiones regulares](https://www.adictosaltrabajo.com/2015/01/29/regexsam/).
 
 ```python
-def scan_sql_injection(url):
+def scan_sql_injection(_______):
     # probar en la URL
     for c in "\"'":
         # añadir comillas o dobles comillas a la URL
         new_url = f"{url}{c}"
-        print("[!] Trying", new_url)
+        print("[!] Probando", new_url)
         # "fabricamos" la petición HTTP
-        res = s.get(new_url)
-        if is_vulnerable(res): #(1)
-            print("[+] SQL Injection vulnerability detected, link:", new_url)
+        res = s.get(_______)
+        if es_vulnerable(res): #(1)
+            print("[+] Vulnerabilidad SQL Injection detectada, link:", _______)
             return
     # probamos los fomularios HTML
-    forms = get_all_forms(url)
-    print(f"[+] Detected {len(forms)} forms on {url}.")
-    for form in forms:
-        form_details = get_form_details(form)
+    forms = get_all_forms(_______)
+    print(f"[+] Detectados {len(forms)} formularios en {url}.")
+    for form in _______:
+        form_details = get_form_details(_______)
         for c in "\"'":
             # los datos del cuerpo de la petición que queremos enviar
             data = {}
-            for input_tag in form_details["inputs"]:
+            for input_tag in _______["inputs"]:
                 if input_tag["value"] or input_tag["type"] == "hidden": # (2)
                     try:
                         data[input_tag["name"]] = input_tag["value"] + c
@@ -122,15 +121,15 @@ def scan_sql_injection(url):
                     #todos los tipos excepto *submit*, usando datos basura como 
                     #caractéres especiales
                     data[input_tag["name"]] = f"test{c}"
-            url = urljoin(url, form_details["action"]) # (3)
+            url = urljoin(_______, form_details["action"]) # (3)
             if form_details["method"] == "post":
-                res = s.post(url, data=data)
+                res = s.post(_______, data=data)
             elif form_details["method"] == "get":
-                res = s.get(url, params=data)
+                res = s.get(_______, params=data)
             # comprobar si la página resultante es vulnerable
-            if is_vulnerable(res):
-                print("[+] SQL Injection vulnerability detected, link:", url)
-                print("[+] Form:")
+            if es_vulnerable(res):
+                print("[+] Vulnerabilidad SQL Injection detectada, link", url)
+                print("[+] Formulario:")
                 pprint(form_details)
                 break   
 ```
@@ -151,7 +150,7 @@ Así pues, el `main` de nuestro script queda así:
 if __name__ == "__main__":
     import sys
     url = sys.argv[1]
-    scan_sql_injection(url)
+    _______ ()
 ```
 
 
@@ -159,5 +158,5 @@ if __name__ == "__main__":
 
 # Referencias
 
-[Code for How to Build a SQL Injection Scanner in Python Tutorial](https://www.thepythoncode.com/code/sql-injection-vulnerability-detector-in-python)
+[Cómo crear un script para SQLi en Python](https://www.thepythoncode.com/article/sql-injection-vulnerability-detector-in-python)
 

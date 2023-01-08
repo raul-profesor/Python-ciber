@@ -17,3 +17,4 @@ nav:
     - Ejercicios de Python para cibeseguridad:
       - Programamos un keylogger: keylogger.md
       - Busquemos inyecciones SQL: SQLi.md
+      - Fuerza bruta en SSH: SSH_brute.md
