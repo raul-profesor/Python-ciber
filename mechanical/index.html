@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/Python-ciber/mechanical/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -592,6 +597,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_brute/" class="md-nav__link">
+        Fuerza bruta en SSH
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -606,10 +625,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="mechanical-soup">Mechanical Soup</h1>
@@ -634,20 +654,20 @@
 </ul>
 <h2 id="instalacion-y-comprobacion">Instalación y comprobación</h2>
 <p>Lo primero que deberemos hacer, como siempre, es instalar MechanicalSoup. Podemos hacerlo en nuestro entorno virtual:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">pipenv</span> <span class="n">shell</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">pipenv</span> <span class="n">install</span> <span class="n">mechanicalsoup</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pipenv</span> <span class="n">shell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">pipenv</span> <span class="n">install</span> <span class="n">mechanicalsoup</span>
 </code></pre></div>
 <p>O, de forma general, en nuestra máquina:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">pipenv</span> <span class="n">install</span> <span class="n">mechanicalsoup</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipenv</span> <span class="n">install</span> <span class="n">mechanicalsoup</span>
 </code></pre></div>
 Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en el entorno interactivo de Python3:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">mechanicalsoup</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">browser</span> <span class="o">=</span> <span class="n">mechanicalsoup</span><span class="o">.</span><span class="n">StatefulBrowser</span><span class="p">()</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://httpbin.org&quot;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">mechanicalsoup</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">browser</span> <span class="o">=</span> <span class="n">mechanicalsoup</span><span class="o">.</span><span class="n">StatefulBrowser</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://httpbin.org&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">())</span>
 </code></pre></div>
 <p>En el código de arriba:</p>
 <ol>
@@ -659,35 +679,35 @@ Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en e
 </ol>
 <h2 id="trabajar-con-mechanicalsoup">Trabajar con MechanicalSoup</h2>
 <p>Siguiendo con el ejemplo anterior, podemos llevar a cabo más acciones, como por ejemplo seguir subdominios de la siguiente forma:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">follow_link</span><span class="p">(</span><span class="s2">&quot;forms&quot;</span><span class="p">)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">follow_link</span><span class="p">(</span><span class="s2">&quot;forms&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">()</span>
 </code></pre></div>
 <p>Ahora podemos extraer el contenido de la página:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
 </code></pre></div>
 <p>que devolverá el código fuente de la página actual de la misma forma que lo hace la función <code>prettify</code> de beautifulsoup. Recordemos que MechanicalSoup utiliza BeautifulSoup para la extracción de datos.</p>
 <p>Para encontrar cualquier etiqueta, podríamos buscarla así:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="formularios">Formularios</h3>
 <p>También podemos encontrar los formularios y hacer peticiones POST con el siguiente comando:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="s1">&#39;form[action=&quot;/post&quot;]&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_form</span><span class="p">()</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="s1">&#39;form[action=&quot;/post&quot;]&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_form</span><span class="p">()</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
 </code></pre></div>
 <ul>
 <li>Con <code>select_form()</code> utilizamos un selector CSS, seleccionamos el tag HTML <strong>form</strong> que tiene al atributo <code>action</code> y cuyo valor es <code>/post</code>. </li>
 <li><code>print_summary</code> nos mostrará todos los campos disponibles del formulario</li>
 </ul>
 <p>Para rellenar el formulario, podemos utilizar los siguientes comandos:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mohit&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custtel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;9081515151&quot;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custemail&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mohitmaithani@aol.com&quot;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;comments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;please make pizza dough more soft&quot;</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;large&quot;</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;topping&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mushroom&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mohit&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custtel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;9081515151&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;custemail&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mohitmaithani@aol.com&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;comments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;please make pizza dough more soft&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;large&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;topping&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mushroom&quot;</span>
 </code></pre></div>
 <p>Y, posteriormente, podemos ejecutar el navegador con:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">launch_browser</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">browser</span><span class="o">.</span><span class="n">launch_browser</span><span class="p">()</span>
 </code></pre></div>
 <ul>
 <li>La sintaxis <code>browser["marcador"] = "texto"</code> se usa para rellenar un formulario</li>
@@ -695,72 +715,72 @@ Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en e
 </ul>
 <p>Y con esto damos por presentados los fundamentos más básicos de MechanicalSoup. Para una documentación en profundidad acerca de su funcionamiento y opciones, podemos consultar <a href="https://mechanicalsoup.readthedocs.io/en/stable/mechanicalsoup.html">aquí</a>.</p>
 <h2 id="haciendo-scraping-de-imagenes-de-hackers">Haciendo scraping de imágenes de hackers</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">mechanicalsoup</span> <span class="c1">#(1)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">browser</span> <span class="o">=</span> <span class="n">mechanicalsoup</span><span class="o">.</span><span class="n">StatefulBrowser</span><span class="p">()</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.google.com/imghp?hl=en&quot;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1">#obtener el HTML</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a>
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="c1">#localizar el input para la búsqueda</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="n">browser</span><span class="o">.</span><span class="n">select_form</span><span class="p">()</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_form</span><span class="p">()</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a>
-<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="c1">#buscar el término concreto</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="n">search_term</span> <span class="o">=</span> <span class="s1">&#39;hacker&#39;</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">search_term</span> 
-<a id="__codelineno-9-19" name="__codelineno-9-19"></a>
-<a id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="c1">#enviar o hacer &quot;click&quot; en buscar</span>
-<a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="n">respuesta</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">submit_selected</span><span class="p">()</span>
-<a id="__codelineno-9-22" name="__codelineno-9-22"></a>
-<a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nueva url:&#39;</span><span class="p">,</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">())</span>
-<a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;respuesta:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">respuesta</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">500</span><span class="p">])</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25"></a>
-<a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="c1">#abrir la URL #(2)</span>
-<a id="__codelineno-9-27" name="__codelineno-9-27"></a><span class="n">nueva_url</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">()</span>
-<a id="__codelineno-9-28" name="__codelineno-9-28"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">nueva_url</span><span class="p">)</span>
-<a id="__codelineno-9-29" name="__codelineno-9-29"></a>
-<a id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="c1">#obtener el código HTML</span>
-<a id="__codelineno-9-31" name="__codelineno-9-31"></a><span class="n">page</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
-<a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="n">all_images</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-33" name="__codelineno-9-33"></a>
-<a id="__codelineno-9-34" name="__codelineno-9-34"></a><span class="c1">#localizar los atributos de cada imagen</span>
-<a id="__codelineno-9-35" name="__codelineno-9-35"></a><span class="n">image_source</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">all_images</span><span class="p">:</span>
-<a id="__codelineno-9-37" name="__codelineno-9-37"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-38" name="__codelineno-9-38"></a>    <span class="n">image_source</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-9-39" name="__codelineno-9-39"></a>
-<a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="n">image_source</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
-<a id="__codelineno-9-41" name="__codelineno-9-41"></a>
-<a id="__codelineno-9-42" name="__codelineno-9-42"></a><span class="c1">#guardar los links &quot;limpios&quot; en &#39;image_source&#39;</span>
-<a id="__codelineno-9-43" name="__codelineno-9-43"></a><span class="n">image_source</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_source</span> <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">)]</span>
-<a id="__codelineno-9-44" name="__codelineno-9-44"></a>
-<a id="__codelineno-9-45" name="__codelineno-9-45"></a><span class="nb">print</span><span class="p">(</span><span class="n">image_source</span><span class="p">)</span>
-<a id="__codelineno-9-46" name="__codelineno-9-46"></a>
-<a id="__codelineno-9-47" name="__codelineno-9-47"></a>
-<a id="__codelineno-9-48" name="__codelineno-9-48"></a><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#(4)</span>
-<a id="__codelineno-9-49" name="__codelineno-9-49"></a>
-<a id="__codelineno-9-50" name="__codelineno-9-50"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<a id="__codelineno-9-51" name="__codelineno-9-51"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">search_term</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
-<a id="__codelineno-9-52" name="__codelineno-9-52"></a>
-<a id="__codelineno-9-53" name="__codelineno-9-53"></a><span class="c1">#crear el directorio</span>
-<a id="__codelineno-9-54" name="__codelineno-9-54"></a><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-9-55" name="__codelineno-9-55"></a><span class="c1">#imprimir el path donde se van a guardar las imágenes de hackers</span>
-<a id="__codelineno-9-56" name="__codelineno-9-56"></a><span class="n">path</span>
-<a id="__codelineno-9-57" name="__codelineno-9-57"></a>
-<a id="__codelineno-9-58" name="__codelineno-9-58"></a><span class="c1">##Descargar wget descomentando la línea de abajo #(5)</span>
-<a id="__codelineno-9-59" name="__codelineno-9-59"></a><span class="c1">#pip install wget  </span>
-<a id="__codelineno-9-60" name="__codelineno-9-60"></a>
-<a id="__codelineno-9-61" name="__codelineno-9-61"></a><span class="c1">##descargar imágenes</span>
-<a id="__codelineno-9-62" name="__codelineno-9-62"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-9-63" name="__codelineno-9-63"></a><span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_source</span><span class="p">:</span>
-<a id="__codelineno-9-64" name="__codelineno-9-64"></a>    <span class="n">save_as</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">search_term</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-65" name="__codelineno-9-65"></a>    <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">save_as</span><span class="p">)</span>
-<a id="__codelineno-9-66" name="__codelineno-9-66"></a>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">mechanicalsoup</span> <span class="c1">#(1)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">browser</span> <span class="o">=</span> <span class="n">mechanicalsoup</span><span class="o">.</span><span class="n">StatefulBrowser</span><span class="p">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.google.com/imghp?hl=en&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">#obtener el HTML</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1">#localizar el input para la búsqueda</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">browser</span><span class="o">.</span><span class="n">select_form</span><span class="p">()</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="n">browser</span><span class="o">.</span><span class="n">get_current_form</span><span class="p">()</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="c1">#buscar el término concreto</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="n">search_term</span> <span class="o">=</span> <span class="s1">&#39;hacker&#39;</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="n">browser</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">search_term</span> 
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="c1">#enviar o hacer &quot;click&quot; en buscar</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="n">respuesta</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">submit_selected</span><span class="p">()</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nueva url:&#39;</span><span class="p">,</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">())</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;respuesta:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">respuesta</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">500</span><span class="p">])</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="c1">#abrir la URL #(2)</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="n">nueva_url</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_url</span><span class="p">()</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="n">browser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">nueva_url</span><span class="p">)</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="c1">#obtener el código HTML</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="n">page</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_current_page</span><span class="p">()</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="n">all_images</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="c1">#localizar los atributos de cada imagen</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="n">image_source</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">all_images</span><span class="p">:</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>    <span class="n">image_source</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="n">image_source</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="c1">#guardar los links &quot;limpios&quot; en &#39;image_source&#39;</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="n">image_source</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_source</span> <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">)]</span>
+<a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a>
+<a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="nb">print</span><span class="p">(</span><span class="n">image_source</span><span class="p">)</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a>
+<a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a>
+<a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#(4)</span>
+<a id="__codelineno-9-49" name="__codelineno-9-49" href="#__codelineno-9-49"></a>
+<a id="__codelineno-9-50" name="__codelineno-9-50" href="#__codelineno-9-50"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<a id="__codelineno-9-51" name="__codelineno-9-51" href="#__codelineno-9-51"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">search_term</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-52" name="__codelineno-9-52" href="#__codelineno-9-52"></a>
+<a id="__codelineno-9-53" name="__codelineno-9-53" href="#__codelineno-9-53"></a><span class="c1">#crear el directorio</span>
+<a id="__codelineno-9-54" name="__codelineno-9-54" href="#__codelineno-9-54"></a><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-9-55" name="__codelineno-9-55" href="#__codelineno-9-55"></a><span class="c1">#imprimir el path donde se van a guardar las imágenes de hackers</span>
+<a id="__codelineno-9-56" name="__codelineno-9-56" href="#__codelineno-9-56"></a><span class="n">path</span>
+<a id="__codelineno-9-57" name="__codelineno-9-57" href="#__codelineno-9-57"></a>
+<a id="__codelineno-9-58" name="__codelineno-9-58" href="#__codelineno-9-58"></a><span class="c1">##Descargar wget descomentando la línea de abajo #(5)</span>
+<a id="__codelineno-9-59" name="__codelineno-9-59" href="#__codelineno-9-59"></a><span class="c1">#pip install wget  </span>
+<a id="__codelineno-9-60" name="__codelineno-9-60" href="#__codelineno-9-60"></a>
+<a id="__codelineno-9-61" name="__codelineno-9-61" href="#__codelineno-9-61"></a><span class="c1">##descargar imágenes</span>
+<a id="__codelineno-9-62" name="__codelineno-9-62" href="#__codelineno-9-62"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-63" name="__codelineno-9-63" href="#__codelineno-9-63"></a><span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_source</span><span class="p">:</span>
+<a id="__codelineno-9-64" name="__codelineno-9-64" href="#__codelineno-9-64"></a>    <span class="n">save_as</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">search_term</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-65" name="__codelineno-9-65" href="#__codelineno-9-65"></a>    <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">save_as</span><span class="p">)</span>
+<a id="__codelineno-9-66" name="__codelineno-9-66" href="#__codelineno-9-66"></a>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
 <ol>
 <li>Buscar imágenes de hackers en Google. Establecemos la petición/query y hacemos que se abra en el navegador con el texto <em>hackers</em></li>
@@ -777,12 +797,18 @@ Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en e
 <p><a href="https://mechanicalsoup.readthedocs.io/en/stable/tutorial.html">MechanicalSoup tutorial - First contact, step by step</a></p>
 <p><a href="https://analyticsindiamag.com/mechanicalsoup-web-scraping-custom-dataset-tutorial/">A Deep Dive Into Web Scraping Using MechanicalSoup</a></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -791,7 +817,8 @@ Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en e
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../beauty/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: BeautifulSoup" rel="prev">
@@ -846,11 +873,13 @@ Comprobemos que no tenemos errores con nuestra nueva biblioteca. Para ello, en e
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>

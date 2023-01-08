@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/Python-ciber/modulos/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -578,6 +583,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_brute/" class="md-nav__link">
+        Fuerza bruta en SSH
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -592,10 +611,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="modulos-y-paquetes">Módulos y Paquetes</h1>
@@ -608,39 +628,39 @@ reutilizar las funciones en muchos programas diferentes.</p>
 <p>Cuando se almacenan funciones en archivos separados, se pueden compartir esos archivos con otros programadores sin tener que compartir todo el programa. Saber cómo importar funciones también permite utilizar bibliotecas de funciones que otros programadores han escrito.</p>
 <h2 id="modulos">Módulos</h2>
 <p>Así pues, un módulo es un archivo de Python que contiene variables, funciones y clases. Es una forma de ordenar y reutilizar código ya que todo el contenido de un módulo es accesible por los archivos que lo importen.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># mundo.py</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">def</span> <span class="nf">hola_mundo</span><span class="p">():</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola Mundo!&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span> <span class="nf">adios_mundo</span><span class="p">():</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Adios Mundo!&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># mundo.py</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span> <span class="nf">hola_mundo</span><span class="p">():</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola Mundo!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">adios_mundo</span><span class="p">():</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Adios Mundo!&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Para acceder a las funciones desde otro archivo Python se utiliza la palabra reservada <code>import</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># app.py</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">mundo</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1"># Llamada a la función</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">mundo</span><span class="o">.</span><span class="n">hola_mundo</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># app.py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">mundo</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Llamada a la función</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">mundo</span><span class="o">.</span><span class="n">hola_mundo</span><span class="p">()</span>
 </code></pre></div>
 <p>También existe la posibilidad de importar únicamente objetos concretos de un módulo mediante la sintaxis <code>from ... import</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># app.py</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># Llamada a la función</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">adios_mundo</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># app.py</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Llamada a la función</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">adios_mundo</span><span class="p">()</span>
 </code></pre></div>
 <p>De esta forma no es necesario escribir el nombre del modulo antes de utilizar la función. De igual manera, se pueden importar varios objetos de un módulo separándolos por una coma:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># app.py</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span><span class="p">,</span> <span class="n">hola_mundo</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># app.py</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span><span class="p">,</span> <span class="n">hola_mundo</span>
 </code></pre></div>
 <p>Para importar todos los los objetos de un módulo basta con utilizar el asterisco:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># app.py</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># app.py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">mundo</span> <span class="kn">import</span> <span class="o">*</span>
 </code></pre></div>
 <h3 id="localizacion-de-los-modulos">Localización de los módulos</h3>
 <p>Al importar un módulo Python lo buscara en los siguientes directorios:</p>
@@ -653,21 +673,27 @@ reutilizar las funciones en muchos programas diferentes.</p>
 <p>Es posible agrupar los módulos que tienen relación en un mismo directorio. Estos directorios son conocidos en Python como paquetes y deben contener siempre un archivo llamado <code>__init__.py</code> para que Python lo reconozca como un paquete.</p>
 <p>A medida que desarrollamos una aplicación es habitual agrupar los archivos en directorios (paquetes) para tener el código organizado.</p>
 <p>Para cargar un módulo ubicado en un paquete lo haremos de la siguiente forma:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">mipaquete.mundo</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">mipaquete.mundo</span>
 </code></pre></div>
 o bien de la siguiente manera:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">mipaquete</span> <span class="kn">import</span> <span class="n">mundo</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">mipaquete</span> <span class="kn">import</span> <span class="n">mundo</span>
 </code></pre></div>
 También es posible importar elementos concretos de un módulo:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">mipaquete.mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span><span class="p">,</span> <span class="n">hola_mundo</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">mipaquete.mundo</span> <span class="kn">import</span> <span class="n">adios_mundo</span><span class="p">,</span> <span class="n">hola_mundo</span>
 </code></pre></div></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -676,7 +702,8 @@ También es posible importar elementos concretos de un módulo:
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../excepciones/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Excepciones" rel="prev">
@@ -731,11 +758,13 @@ También es posible importar elementos concretos de un módulo:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>
