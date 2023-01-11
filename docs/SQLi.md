@@ -158,5 +158,7 @@ if __name__ == "__main__":
 
 # Referencias
 
-[Cómo crear un script para SQLi en Python](https://www.thepythoncode.com/article/sql-injection-vulnerability-detector-in-python)
+[What is an SQLi?](https://portswigger.net/web-security/sql-injection)
+
+[How to Build a SQL Injection Scanner in Python](https://www.thepythoncode.com/article/sql-injection-vulnerability-detector-in-python)
 
