@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/Python-ciber/variables/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -19,12 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
+      
+
     
     
     
@@ -39,10 +41,11 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -111,6 +114,7 @@
         
           
           
+          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
@@ -118,6 +122,7 @@
             </label>
           
         
+          
           
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_2">
@@ -145,7 +150,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -572,6 +577,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_brute/" class="md-nav__link">
+        Fuerza bruta en SSH
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -586,10 +605,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="variables">Variables</h1>
@@ -640,16 +660,16 @@ buscar directamente por clave.</li>
 </div>
 <h2 id="lectura-de-datos-en-python">Lectura de datos en Python</h2>
 <p>La función <code>input()</code> permite introducir datos al usuario:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nombre</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Leire</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">Leire</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nombre</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Leire</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">Leire</span>
 </code></pre></div>
 <p>Como se puede ver en el siguiente ejemplo, es posible también mostrar un mensaje al usuario, tal y como muestra el siguiente ejemplo.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nombre</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escribe tu nombre: &quot;</span><span class="p">)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Escribe</span> <span class="n">tu</span> <span class="n">nombre</span><span class="p">:</span> <span class="n">Leire</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">Leire</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nombre</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escribe tu nombre: &quot;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Escribe</span> <span class="n">tu</span> <span class="n">nombre</span><span class="p">:</span> <span class="n">Leire</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">Leire</span>
 </code></pre></div>
 <h2 id="numeros">Números</h2>
 <p>Python soporta dos tipos de números: enteros (integer) y de punto flotante (float).</p>
@@ -663,133 +683,133 @@ print(y)</p>
 <h1 id="otra-forma-de-declarar-un-float">Otra forma de declarar un float</h1>
 <p>z = float(5)
 print(z)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>Si tenemos dudas del valor de una variable, podemos mostrar su tipo utilizando la función `type()`:
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>```python
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>&gt;&gt;&gt; x = 5.5
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>&gt;&gt;&gt; type(x)
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>&lt;class &#39;float&#39;&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Si tenemos dudas del valor de una variable, podemos mostrar su tipo utilizando la función `type()`:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>```python
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&gt;&gt;&gt; x = 5.5
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&gt;&gt;&gt; type(x)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>&lt;class &#39;float&#39;&gt;
 </code></pre></div></p>
 <h2 id="cadenas-de-texto-string">Cadenas de texto (string)</h2>
 <p>Las cadenas de texto o strings se definen mediante comilla simple (<code>' '</code>) o doble comilla (<code>" "</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;Ane&#39;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">mi_nombre</span><span class="o">=</span> <span class="s2">&quot;Ane&quot;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;Ane&#39;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">mi_nombre</span><span class="o">=</span> <span class="s2">&quot;Ane&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
 </code></pre></div>
 <p>La diferencia principal se encuentra en que las comillas dobles aportan mayor facilidad en textos que incluyan apóstrofes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m John&#39;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">mi_nombre</span><span class="o">=</span> <span class="s2">&quot;I&#39;m John&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m John&#39;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">mi_nombre</span><span class="o">=</span> <span class="s2">&quot;I&#39;m John&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">mi_nombre</span><span class="p">)</span>
 </code></pre></div>
 <p>Más información sobre strings y carácteres especiales en: <a href="https://docs.python.org/3/tutorial/introduction.html#strings"> https://docs.python.org/3/tutorial/introduction.html#strings</a></p>
 <p>Para definir strings multi-línea se utiliza la triples comillas (<code>"""</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; esto es una</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="s2">        frase muy larga de más de</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="s2">        una línea ...&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; esto es una</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s2">        frase muy larga de más de</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s2">        una línea ...&quot;&quot;&quot;</span>
 </code></pre></div>
 <h3 id="concatenacion-de-strings">Concatenación de strings</h3>
 <p>Es posible unir dos strings con el operador <code>+</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primera_palabra</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase_completa</span> <span class="o">=</span> <span class="n">primera_palabra</span> <span class="o">+</span> <span class="s1">&#39;, mundo&#39;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">frase_completa</span><span class="p">)</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="s1">&#39;Hola, mundo&#39;</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">segunda_palabra</span> <span class="o">=</span> <span class="s1">&#39;mundo&#39;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase_completa</span> <span class="o">=</span> <span class="n">primera_palabra</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">segunda_palabra</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">frase_completa</span><span class="p">)</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="s1">&#39;Hola, mundo&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">primera_palabra</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase_completa</span> <span class="o">=</span> <span class="n">primera_palabra</span> <span class="o">+</span> <span class="s1">&#39;, mundo&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">frase_completa</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s1">&#39;Hola, mundo&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">segunda_palabra</span> <span class="o">=</span> <span class="s1">&#39;mundo&#39;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase_completa</span> <span class="o">=</span> <span class="n">primera_palabra</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">segunda_palabra</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">frase_completa</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s1">&#39;Hola, mundo&#39;</span>
 </code></pre></div>
 <p><strong>Método alternativo 1</strong>: str.join():
 El método <code>join()</code> recibe como argumento el listado (de tipo List, Tuple, String, Dictionary y Set) de strings que se desean concatenar. Se invoca sobre el separador que se utilizará para unir las cadenas (el cual a su vez es un string también):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">]</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">separador</span> <span class="o">=</span> <span class="s1">&#39; - &#39;</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">separador</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="s1">&#39;do - re - mi&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">separador</span> <span class="o">=</span> <span class="s1">&#39; - &#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">separador</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s1">&#39;do - re - mi&#39;</span>
 </code></pre></div>
 <p>Para iterar un elemento detrás del otro se introducirá string vacío como separador:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">]</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="s1">&#39;doremi&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s1">&#39;doremi&#39;</span>
 </code></pre></div>
 <p><strong>Método alternativo 2</strong>: <code>str.format()</code>:
 Python 3 introdujo una nueva forma para formatear strings, la cual sustituye a la anterior en la que se hace uso del operador <code>%</code>. Para ello se invoca el método <code>format()</code> de un string:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Ordenado por defecto:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2"> y </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># Especificar el orden indicando la posición:</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2"> y </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1"># Especificar el orden mediante parejas clave-valor:</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{ene}</span><span class="s2">, </span><span class="si">{feb}</span><span class="s2"> y </span><span class="si">{mar}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ene</span><span class="o">=</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span> <span class="n">feb</span><span class="o">=</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="n">mar</span><span class="o">=</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Ordenado por defecto:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2"> y </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># Especificar el orden indicando la posición:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2"> y </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Especificar el orden mediante parejas clave-valor:</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Meses: </span><span class="si">{ene}</span><span class="s2">, </span><span class="si">{feb}</span><span class="s2"> y </span><span class="si">{mar}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ene</span><span class="o">=</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span> <span class="n">feb</span><span class="o">=</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="n">mar</span><span class="o">=</span><span class="s1">&#39;Marzo&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="cadenas-f-f-strings">Cadenas 'f' (f-strings)</h3>
 <p>La versión 3.6 de Python trajo un gran avance a la hora de integrar variables o expreiones en cadenas de carácteres. Se introdujeron las llamadas <code>f-strings</code>, una forma más cómoda y directa para insertar variables y expresiones en cadenas. Permiten introducir cualquier variable o expresión dentro de un string incluyendo la variable entre llaves <code>{</code> y <code>}</code>.</p>
 <p>Veamos un ejemplo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Nora&quot;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">22</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">saludo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Me llamo </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> y tengo </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años.&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Nora&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">22</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">saludo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Me llamo </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> y tengo </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años.&quot;</span>
 </code></pre></div>
 <p>Para indicar que se trata de un <code>f-string</code>, este deberá incluir la letra 'f' antes del comiendo de la cadena (antes de las comillas). A continuación se muestra otro ejemplo en el que se introduce una expresión:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La multiplicación de </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> y </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> es igual a </span><span class="si">{</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La multiplicación de </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> y </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> es igual a </span><span class="si">{</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="conversion-de-tipos">Conversión de tipos</h3>
 <p>A la hora de concatenar un string con otras variables como <code>integer</code> o <code>float</code> puede haber problemas:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nota_media</span> <span class="o">=</span> <span class="mf">7.3</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo &quot;</span> <span class="o">+</span> <span class="n">edad</span> <span class="o">+</span> <span class="s2">&quot; años y mi nota media es &quot;</span> <span class="o">+</span> <span class="n">nota_media</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nota_media</span> <span class="o">=</span> <span class="mf">7.3</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo &quot;</span> <span class="o">+</span> <span class="n">edad</span> <span class="o">+</span> <span class="s2">&quot; años y mi nota media es &quot;</span> <span class="o">+</span> <span class="n">nota_media</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
 </code></pre></div>
 <p>Mediante la función <code>str()</code> podemos convertir un valor a string y evitar así cualquier tipo de problema:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nota_media</span> <span class="o">=</span> <span class="mf">7.3</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">edad</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; años y mi nota media es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nota_media</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">Tengo</span> <span class="mi">25</span> <span class="n">años</span> <span class="n">y</span> <span class="n">mi</span> <span class="n">nota</span> <span class="n">media</span> <span class="n">es</span> <span class="mf">7.3</span><span class="o">.</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nota_media</span> <span class="o">=</span> <span class="mf">7.3</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">edad</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; años y mi nota media es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nota_media</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">Tengo</span> <span class="mi">25</span> <span class="n">años</span> <span class="n">y</span> <span class="n">mi</span> <span class="n">nota</span> <span class="n">media</span> <span class="n">es</span> <span class="mf">7.3</span><span class="o">.</span>
 </code></pre></div>
 <p>De igual manera es posible convertir a otros tipos con las funciones <code>int()</code>, <code>float()</code> and <code>bool()</code>.</p>
 <h3 id="metodos-en-cadenas-de-texto-string">Métodos en cadenas de texto (string)</h3>
 <p>Es posible <strong>obtener un carácter concreto</strong> de un string utilizando los corchetes <code>[]</code> y el índice del carácter al que queremos acceder:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">frase</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># devuelve el primer caracter</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">frase</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># devuelve el segundo caracter</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">frase</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># devuelve el primer caracter empezando por el final</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">frase</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># # devuelve el segundo caracter empezando por el final</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">frase</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># devuelve el primer caracter</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">frase</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># devuelve el segundo caracter</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">frase</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># devuelve el primer caracter empezando por el final</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">frase</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># # devuelve el segundo caracter empezando por el final</span>
 </code></pre></div>
 <p>Si queremos <strong>obtener un substring</strong>, utilizaremos la siguiente notación:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> 
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># devuelverá los caracteres desde la posición 1 hasta la 5 (no incluye el 5)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> 
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># devuelverá los caracteres desde la posición 1 hasta la 5 (no incluye el 5)</span>
 </code></pre></div>
 <p>En caso de dejar la primera variable vacía, se considera la primera posición del string. Dejando la segunda variable vacía se considera la última posición del string:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="s1">&#39;Apren&#39;</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="s1">&#39;ndiendo a programar en Python&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">frase</span> <span class="o">=</span> <span class="s1">&#39;Aprendiendo a programar en Python&#39;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="s1">&#39;Apren&#39;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span> <span class="o">=</span> <span class="n">frase</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mi_substring</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="s1">&#39;ndiendo a programar en Python&#39;</span>
 </code></pre></div>
 <p>Otros métodos útiles de string:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1"># devuelve la longitud del string</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># convierte a mayúsculas</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># convierte a minúsculas</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="c1"># convierte a mayúsculas la primera letra de cada palabra</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nb">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substring</span> <span class="p">[,</span> <span class="n">inicio</span><span class="p">,</span> <span class="n">fin</span><span class="p">])</span> <span class="c1"># devuelve el número de veces que aparece</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># el substring en el string. Opcionalmente se puede indicar el inicio y fin. </span>
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="err">‘</span><span class="n">d</span><span class="err">’</span><span class="p">)</span> <span class="c1"># devuelve el índice de la primera aparición de &#39;d&#39;</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1"># (devolverá -1 si no lo encuentra)</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="n">substr</span> <span class="ow">in</span> <span class="nb">str</span> <span class="c1"># devuelve True si el string contiene el substring</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="p">[,</span> <span class="n">count</span><span class="p">])</span> <span class="c1"># reemplaza &#39;old&#39; por &#39;new&#39; un máximo de &#39;count&#39; veces.</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="nb">str</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="c1"># devuelve True si str contiene solamente números</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1"># devuelve la longitud del string</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># convierte a mayúsculas</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># convierte a minúsculas</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="c1"># convierte a mayúsculas la primera letra de cada palabra</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nb">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substring</span> <span class="p">[,</span> <span class="n">inicio</span><span class="p">,</span> <span class="n">fin</span><span class="p">])</span> <span class="c1"># devuelve el número de veces que aparece</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># el substring en el string. Opcionalmente se puede indicar el inicio y fin. </span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="err">‘</span><span class="n">d</span><span class="err">’</span><span class="p">)</span> <span class="c1"># devuelve el índice de la primera aparición de &#39;d&#39;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># (devolverá -1 si no lo encuentra)</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="n">substr</span> <span class="ow">in</span> <span class="nb">str</span> <span class="c1"># devuelve True si el string contiene el substring</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="p">[,</span> <span class="n">count</span><span class="p">])</span> <span class="c1"># reemplaza &#39;old&#39; por &#39;new&#39; un máximo de &#39;count&#39; veces.</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="nb">str</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="c1"># devuelve True si str contiene solamente números</span>
 </code></pre></div>
 <h2 id="coding-time">Coding time!</h2>
 <h3 id="ejercicio-1">Ejercicio 1</h3>
@@ -834,12 +854,18 @@ Python 3 introdujo una nueva forma para formatear strings, la cual sustituye a l
 </ol>
 </div>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -848,7 +874,8 @@ Python 3 introdujo una nueva forma para formatear strings, la cual sustituye a l
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../intro/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Introducción" rel="prev">
@@ -903,11 +930,13 @@ Python 3 introdujo una nueva forma para formatear strings, la cual sustituye a l
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
+    
     
   </body>
 </html>
