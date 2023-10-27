@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://raul-profesor.github.io/Python-ciber/SQLi/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -19,11 +19,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -520,6 +521,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_brute/" class="md-nav__link">
+        Fuerza bruta en SSH
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -542,18 +557,17 @@
 
 <p>Vamos a escribir un script que detecte la forma más simple de inyección SQL a modo de prueba de concepto. Probará a añadir una comilla o dobles comillas en la URL y parsear la respuesta en busca de algún error de base de datos, lo cual nos permite deducir que puede haber una potencial vulnerabilidad SQLi.</p>
 <p>Así las cosas, sigamos una serie de pasos para construir por partes nuestro script. Lo primero sería iniciar nuestro entorno virtual e instalar ahí las dependencias que necesitaremos si es que no las teníamos todavía:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pipenv shell
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>pipenv install requests bs4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pipenv shell
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pipenv install requests bs4
 </code></pre></div>
 <p>Ahora, debemos importar los módulos que vamos a necesitar en nuestro script:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># import re # uncomment this for DVWA</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36&quot;</span>
 </code></pre></div>
 <ul>
 <li><code>requests</code> para realizar las peticiones HTTP</li>
@@ -563,31 +577,31 @@
 </ul>
 <p>También inicializamos la sesión de <code>requests</code> y establecemos el user-agent del "navegador".</p>
 <p>Puesto que la inyección SQL se basa en las entradas o inputs del usuario, necesitaremos extraer primero los formularios de la web. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_all_forms</span><span class="p">(</span><span class="n">url</span><span class="p">):</span> <span class="c1"># (1)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;form&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">def</span> <span class="nf">get_form_details</span><span class="p">(</span><span class="n">form</span><span class="p">):</span> <span class="c1"># (2)    </span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">details</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="k">try</span><span class="p">:</span> <span class="c1"># (3)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;action&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="n">method</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># (4)</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># (5)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="k">for</span> <span class="n">input_tag</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">):</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>        <span class="n">input_type</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>        <span class="n">input_name</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>        <span class="n">input_value</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>        <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">input_type</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">input_name</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">input_value</span><span class="p">})</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span> <span class="c1"># (6)</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;inputs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>    <span class="k">return</span> <span class="n">details</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_all_forms</span><span class="p">(</span><span class="n">_______</span><span class="p">):</span> <span class="c1"># (1)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;_______&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;form&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span> <span class="nf">get_form_details</span><span class="p">(</span><span class="n">_______</span><span class="p">):</span> <span class="c1"># (2)    </span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">details</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">try</span><span class="p">:</span> <span class="c1"># (3)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;action&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">method</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># (4)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># (5)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="k">for</span> <span class="n">input_tag</span> <span class="ow">in</span> <span class="n">_______</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">):</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="n">input_type</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="n">input_name</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="n">input_value</span> <span class="o">=</span> <span class="n">input_tag</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">input_type</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">input_name</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">input_value</span><span class="p">})</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span> <span class="c1"># (6)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="n">details</span><span class="p">[</span><span class="s2">&quot;inputs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="k">return</span> <span class="n">_______</span>
 </code></pre></div>
 <ol>
 <li>Dada una 'url'. devuelve todos los formularios  que contiene el código HTML</li>
@@ -597,69 +611,69 @@
 <li>Se obtienen todos los detalles de los datos de entrada, tales como el tipo y el nombre</li>
 <li>Guardamos todos los resultados en un diccionario</li>
 </ol>
-<p><code>get_all_forms()</code> utiliza <strong>BeautifulSoup</strong> para extraer todas las etiquetas/tags del código HTML y devolerlas en forma de lista, mientras que la función <code>get_form_detgails()</code> recibe una etiqueta única del formulario como argumento y parsea la información útil del mismo.</p>
+<p><code>get_all_forms()</code> utiliza <strong>BeautifulSoup</strong> para extraer todas las etiquetas/tags del código HTML y devolerlas en forma de lista, mientras que la función <code>get_form_details()</code> recibe una etiqueta única del formulario como argumento y parsea la información útil del mismo.</p>
 <p>A continuación definiremos una función que nos dirá si una página contiene errores SQL, lo cual nos será útil para comprobar si existe una vulnerabilidad del tipo SQL injection.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">def</span> <span class="nf">is_vulnerable</span><span class="p">(</span><span class="n">response</span><span class="p">):</span> <span class="c1"># (1)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="n">errors</span> <span class="o">=</span> <span class="p">{</span> 
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>        <span class="c1"># MySQL</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>        <span class="s2">&quot;you have an error in your sql syntax;&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>        <span class="s2">&quot;warning: mysql&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>        <span class="c1"># SQL Server</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>        <span class="s2">&quot;unclosed quotation mark after the character string&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>        <span class="c1"># Oracle</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>        <span class="s2">&quot;quoted string not properly terminated&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="p">}</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">:</span> 
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span class="c1"># Si se encuentra algunos de estos errores, devuelve True</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>        <span class="k">if</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>            <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="c1"># No se ha detectado error</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="k">return</span> <span class="kc">False</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">es_vulnerable</span><span class="p">(</span><span class="n">_______</span><span class="p">):</span> <span class="c1"># (1)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">errors</span> <span class="o">=</span> <span class="p">{</span> 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="c1"># MySQL</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">&quot;you have an error in your sql syntax;&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s2">&quot;warning: mysql&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="c1"># SQL Server</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="s2">&quot;unclosed quotation mark after the character string&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="c1"># Oracle</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="s2">&quot;quoted string not properly terminated&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">:</span> 
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="c1"># Si se encuentra algunos de estos errores, devuelve True</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="k">if</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">respuesta</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="c1"># No se ha detectado error</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
 <ol>
 <li>Una simple función booleana que determina si una página es vulnerable a un SQL injection analizando su respuesta</li>
 </ol>
 <p>Obviamente no podemos definir errores para todos los servidores de bases de datos. Para abarcar el máximo número de posibilidades de tipos de error, deberíamos hacer uso de las <a href="https://www.adictosaltrabajo.com/2015/01/29/regexsam/">expresiones regulares</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span> <span class="nf">scan_sql_injection</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="c1"># probar en la URL</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&#39;&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>        <span class="c1"># añadir comillas o dobles comillas a la URL</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>        <span class="n">new_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[!] Trying&quot;</span><span class="p">,</span> <span class="n">new_url</span><span class="p">)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>        <span class="c1"># &quot;fabricamos&quot; la petición HTTP</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>        <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">new_url</span><span class="p">)</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>        <span class="k">if</span> <span class="n">is_vulnerable</span><span class="p">(</span><span class="n">res</span><span class="p">):</span> <span class="c1">#(1)</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] SQL Injection vulnerability detected, link:&quot;</span><span class="p">,</span> <span class="n">new_url</span><span class="p">)</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>            <span class="k">return</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="c1"># probamos los fomularios HTML</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="n">forms</span> <span class="o">=</span> <span class="n">get_all_forms</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[+] Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">forms</span><span class="p">)</span><span class="si">}</span><span class="s2"> forms on </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">forms</span><span class="p">:</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span class="n">form_details</span> <span class="o">=</span> <span class="n">get_form_details</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&#39;&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a>            <span class="c1"># los datos del cuerpo de la petición que queremos enviar</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>            <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a>            <span class="k">for</span> <span class="n">input_tag</span> <span class="ow">in</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;inputs&quot;</span><span class="p">]:</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a>                <span class="k">if</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;hidden&quot;</span><span class="p">:</span> <span class="c1"># (2)</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a>                    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>                        <span class="n">data</span><span class="p">[</span><span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>                    <span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a>                        <span class="k">pass</span>
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>                <span class="k">elif</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;submit&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>                    <span class="c1">#todos los tipos excepto *submit*, usando datos basura como </span>
-<a id="__codelineno-4-28" name="__codelineno-4-28"></a>                    <span class="c1">#caractéres especiales</span>
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a>                    <span class="n">data</span><span class="p">[</span><span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;test</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-4-30" name="__codelineno-4-30"></a>            <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">])</span> <span class="c1"># (3)</span>
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a>            <span class="k">if</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;post&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a>                <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-4-33" name="__codelineno-4-33"></a>            <span class="k">elif</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;get&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-34" name="__codelineno-4-34"></a>                <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-4-35" name="__codelineno-4-35"></a>            <span class="c1"># comprobar si la página resultante es vulnerable</span>
-<a id="__codelineno-4-36" name="__codelineno-4-36"></a>            <span class="k">if</span> <span class="n">is_vulnerable</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
-<a id="__codelineno-4-37" name="__codelineno-4-37"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] SQL Injection vulnerability detected, link:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<a id="__codelineno-4-38" name="__codelineno-4-38"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] Form:&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-39" name="__codelineno-4-39"></a>                <span class="n">pprint</span><span class="p">(</span><span class="n">form_details</span><span class="p">)</span>
-<a id="__codelineno-4-40" name="__codelineno-4-40"></a>                <span class="k">break</span>   
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">scan_sql_injection</span><span class="p">(</span><span class="n">_______</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="c1"># probar en la URL</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&#39;&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="c1"># añadir comillas o dobles comillas a la URL</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="n">new_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[!] Probando&quot;</span><span class="p">,</span> <span class="n">new_url</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="c1"># &quot;fabricamos&quot; la petición HTTP</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="k">if</span> <span class="n">es_vulnerable</span><span class="p">(</span><span class="n">res</span><span class="p">):</span> <span class="c1">#(1)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] Vulnerabilidad SQL Injection detectada, link:&quot;</span><span class="p">,</span> <span class="n">_______</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>            <span class="k">return</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="c1"># probamos los fomularios HTML</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">forms</span> <span class="o">=</span> <span class="n">get_all_forms</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[+] Detectados </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">forms</span><span class="p">)</span><span class="si">}</span><span class="s2"> formularios en </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">_______</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="n">form_details</span> <span class="o">=</span> <span class="n">get_form_details</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&#39;&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>            <span class="c1"># los datos del cuerpo de la petición que queremos enviar</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>            <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>            <span class="k">for</span> <span class="n">input_tag</span> <span class="ow">in</span> <span class="n">_______</span><span class="p">[</span><span class="s2">&quot;inputs&quot;</span><span class="p">]:</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>                <span class="k">if</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;hidden&quot;</span><span class="p">:</span> <span class="c1"># (2)</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>                    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>                        <span class="n">data</span><span class="p">[</span><span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>                    <span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>                        <span class="k">pass</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>                <span class="k">elif</span> <span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;submit&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>                    <span class="c1">#todos los tipos excepto *submit*, usando datos basura como </span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>                    <span class="c1">#caractéres especiales</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>                    <span class="n">data</span><span class="p">[</span><span class="n">input_tag</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;test</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>            <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">])</span> <span class="c1"># (3)</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>            <span class="k">if</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;post&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>                <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>            <span class="k">elif</span> <span class="n">form_details</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;get&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>                <span class="n">res</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>            <span class="c1"># comprobar si la página resultante es vulnerable</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>            <span class="k">if</span> <span class="n">es_vulnerable</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] Vulnerabilidad SQL Injection detectada, link&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[+] Formulario:&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>                <span class="n">pprint</span><span class="p">(</span><span class="n">form_details</span><span class="p">)</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>                <span class="k">break</span>   
 </code></pre></div>
 <ol>
 <li>Se ha detectado un SQLi en la misma URL, no es necesario proceder más allá para extraer formularios y enviarlos</li>
@@ -670,20 +684,22 @@
 <p>Tras ello se utiliza la biblioteca <code>requests</code> para realizar la petición y se compreba si el contenido de la respuesta contiene los errores que estamos buscando.</p>
 <p>A continuación, "parseamos" los formularios y hacemos "submit" de cada uno de los que hemos encontrado añadiendo las comillas.</p>
 <p>Así pues, el <code>main</code> de nuestro script queda así:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="kn">import</span> <span class="nn">sys</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">scan_sql_injection</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">_______</span> <span class="p">()</span>
 </code></pre></div>
 <h1 id="referencias">Referencias</h1>
-<p><a href="https://www.thepythoncode.com/code/sql-injection-vulnerability-detector-in-python">Code for How to Build a SQL Injection Scanner in Python Tutorial</a></p>
+<p><a href="https://portswigger.net/web-security/sql-injection">What is an SQLi?</a></p>
+<p><a href="https://www.thepythoncode.com/article/sql-injection-vulnerability-detector-in-python">How to Build a SQL Injection Scanner in Python</a></p>
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Volver al principio
           </a>
@@ -692,7 +708,8 @@
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
       
         
         <a href="../keylogger/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Programamos un keylogger" rel="prev">
@@ -709,6 +726,21 @@
           </div>
         </a>
       
+      
+        
+        <a href="../SSH_brute/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Fuerza bruta en SSH" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Fuerza bruta en SSH
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
@@ -732,10 +764,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
     
   </body>
