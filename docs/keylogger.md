@@ -17,7 +17,7 @@ Vamos a utilizar una biblioteca concreta, que deberéis instalar y sobre la que 
 
 Los pasos a seguir serán:
 
-1. Importar ambas bibliotecas
+1. Importar la biblioteca
 2. Crear una lista vacía, que será la que contendrá el contenido del portapapeles
 4. Tras ello, debéis crear un bucle infinito:
    1. Si el contenido del portapapeles no está vacío (`''`) debemos guardar su valor en una variable

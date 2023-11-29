@@ -30,7 +30,7 @@ Podemos o bien instalar de forma global la biblioteca:
 pipenv install requests
 ```
 
-O bien, utilizar un entorno virtual a tal efecto. 
+O bien, utilizar un entorno virtual a tal efecto, como se explica a continuación.
 
 
 Creamos una carpeta para hacer la prueba:
@@ -211,7 +211,7 @@ except HTTPError as ex:
 
 En el código de arriba, importamos la clase `HTTPError` para capturar y resolver las excepciones HTTP. Tras ello, realizamos una petición a un endpoint en `httpbin.org`, el cual genera un código de estado 404. El método `raise_for_status()` genera una excepción siempre que la respuesta HTTP contenga un códio de error (un error de cliente del tipo 4XX o una respuesta de error del servidor del tipo 5XX). 
 
-La biblioteca requests no genera una excepción automáticamente una vez ocurre un error. Es por ello que necesitamos usaro el método `raise_for_status()` para identificar si un código de estado de error ha ocurrido o no. Finalmente, el manejador de excepciones bloquea la captura del error y lo imprime tal que así:
+La biblioteca requests no genera una excepción automáticamente una vez ocurre un error. Es por ello que necesitamos usar el método `raise_for_status()` para identificar si un código de estado de error ha ocurrido o no. Finalmente, el manejador de excepciones bloquea la captura del error y lo imprime tal que así:
 
 ```
 404 Client Error: NOT FOUND for url: http://httpbin.org/status/404
@@ -220,7 +220,7 @@ La biblioteca requests no genera una excepción automáticamente una vez ocurre 
 !!!note Nota
     Si intentamos acceder al endpoint <code>http://httpbin.org/status/200</code>, la salida del código de arriba será <code>Response Code: 200</code> porque el código de estado no está en el rango de códigos de estado de error. El método <code>raise_for_status()</code> devolverá <code>None</code>, que no hará saltar al manejador de excepciones.
 
-Además del manejo de excepciones que acabamos de ver, veremos cómo resolver los *timeouts*. Esto es crucial porque necesitaremos asegurarnos de que nuestra aplicación no se queda esperando indefinidamente. Si una petición agota el tiempo de espera, produce una excepción del timpo *Timeout*. Para especificar qué número de segundos consideraremos como timeout, podemos usar el argumento <code>timeout</code>:
+Además del manejo de excepciones que acabamos de ver, veremos cómo resolver los *timeouts*. Esto es crucial porque necesitaremos asegurarnos de que nuestra aplicación no se queda esperando indefinidamente. Si una petición agota el tiempo de espera, produce una excepción del tiempo *Timeout*. Para especificar qué número de segundos consideraremos como timeout, podemos usar el argumento <code>timeout</code>:
 
 ```py
 import requests
@@ -246,9 +246,9 @@ HTTPConnectionPool(host='httpbin.org', port=80): Read timed out. (read timeout=3
 
 ### Autenticación
 
-La bibliotca requests soporta varios tipos de autenticación web, como la autenticación básica, digest, las dos versiones de 0Auth... Podemos usar estos métodos de autenticación cuando queramos trabajar con cualquier tipo de fuente de datos que requiera loguearnos.
+La biblioteca requests soporta varios tipos de autenticación web, como la autenticación básica, digest, las dos versiones de 0Auth... Podemos usar estos métodos de autenticación cuando queramos trabajar con cualquier tipo de fuente de datos que requiera loguearnos.
 
-Implementaremos la autenticación básica usando `HTTPBin` con el siguiente ejemplo. El endpoint para la autenticación básica es `/basic-auth/{*user*}/{*password*}`. Por ejemplo, si quisiéramos usar el siguiente endpoint: `http://httpbin.org/basic-auth/data/quest`, podemos autenticarnos utilizando el utilizando el nombre **data** y el  password **quest** asignándolos como una tupla al argumento `auth`. 
+Implementaremos la autenticación básica usando `HTTPBin` con el siguiente ejemplo. El endpoint para la autenticación básica es `/basic-auth/{user}/{password}`. Por ejemplo, si quisiéramos usar el siguiente endpoint: `http://httpbin.org/basic-auth/data/quest`, podemos autenticarnos utilizando el utilizando el nombre **data** y el  password **quest** asignándolos como una tupla al argumento `auth`. 
 
 Una vez autenticados satisfactoriamente, nos responderá con los datos en formato JSON:
 

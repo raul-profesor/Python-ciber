@@ -29,6 +29,7 @@ import socket
 import time
 from colorama import init, Fore
 ```
+
 + El módulo **paramiko**, entre otras otras cosas, nos permite realizar conexiones ssh a un servidor, mostrando en tiempo real el resultado de los comandos que se ejecuten en el mismo. 
 + El módulo **socket** nos permite crear conexiones de red de bajo nivel
 + **time**, como su nombre indica, proporciona varias funciones relacionadas con el tiempo 

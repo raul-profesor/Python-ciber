@@ -386,7 +386,7 @@ Si os colocáis sobre la pestaña *Inspector*, se os mostrarán todas las etique
 
 ![](img/inspector.png)
 
-Si hacemos click derecho en la página, cerca de donde pone *Extended forecast* y le decimos *Inspeccinoar*, se nos abrirá el tag donde están contenidos esos elementos:
+Si hacemos click derecho en la página, cerca de donde pone *Extended forecast* y le decimos *Inspeccionar*, se nos abrirá el tag donde están contenidos esos elementos:
 
 ![](img/inspeccionar.png)
 
